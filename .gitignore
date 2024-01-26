@@ -1,6 +1,7 @@
 .my_pgpass
 *.pyc
 __pycache__/*
+package-lock.json
 
 # dependencies
 frontend/node_modules
