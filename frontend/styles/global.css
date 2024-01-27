@@ -1,3 +1,16 @@
+:root {
+  --accent-color: #ff2a39;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(/webfonts/fa-solid-900.eot);
+  src: url(/webfonts/fa-solid-900-iefix.eot) format("embedded-opentype"),url(/webfonts/fa-solid-900.woff2) format("woff2"),url(/webfonts/fa-solid-900.woff) format("woff"),url(/webfonts/fa-solid-900.ttf) format("truetype")
+}
+
 html,
 body {
   padding: 0;
@@ -29,4 +42,9 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+footer {
+  background: #002260;
+  padding-top: 70px;
 }

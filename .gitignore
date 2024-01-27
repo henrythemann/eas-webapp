@@ -17,9 +17,12 @@ frontend/out/
 
 # production
 frontend/build
+frontend/data/siteInfo.json
 
 # misc
 .DS_Store
+frontend/public/webfonts/
+*.webp
 
 # debug
 npm-debug.log*

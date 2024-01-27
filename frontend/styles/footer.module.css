@@ -1,0 +1,94 @@
+footer.footer {
+    color: #fff;
+}
+
+.contactInfoItem {
+    position: relative;
+    padding-left: 27px;
+    line-height: 30px;
+    margin-bottom: 15px;
+}
+.contactInfoContainer .icon {
+    padding-right: 10px;
+    font-size: 16px;
+    position: absolute;
+    left: 0px;
+    top: 8px;
+}
+
+footer .fa, .fas {
+    color: var(--accent-color)
+}
+.faMapMarkerAlt:before {
+    content: "\f3c5";
+}
+.faEnvelope:before {
+    content: "\f0e0";
+}
+.faPhoneAlt:before {
+    content: "\f879";
+}
+
+footer .creditCardSection {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px 28px;
+    border-radius: 5px;
+    display: flex;
+}
+footer .creditCardSection .text {
+    max-width: 400px;
+}
+
+.creditCardsContainer {
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: right;
+    flex: 1;
+    text-align: right;
+    margin: auto;
+    white-space: nowrap;
+}
+.creditCardsContainer img {
+    height: min-content;
+}
+.creditCardsContainer img {
+    margin-right: 10px;
+}
+.creditCardsContainer img:last-child {
+    margin-right: 0px;
+}
+
+.copyrightSection {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0px;
+    font-size: 14px;
+    color: #d3d6df;
+}
+.copyrightSection a {
+    color: #ffffff80;
+    transition: color 0.3s ease-in-out;
+}
+.copyrightSection a:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+    footer .creditCardSection {
+        display: block;
+        text-align: center;
+    }
+    footer .creditCardsContainer img {
+        margin-top: 15px;
+    }
+    footer .creditCardSection .text {
+        margin: 0 auto;
+    }
+}
+@media (max-width: 390px) {
+    footer .creditCardsContainer img {
+        display: block;
+        margin-right: 0px;
+    }
+}
+
