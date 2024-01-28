@@ -74,3 +74,15 @@
     text-rendering: auto;
     line-height: 1;
 }
+.faMapMarkerAlt:before {
+    content: "\f3c5";
+}
+.faEnvelope:before {
+    content: "\f0e0";
+}
+.faPhoneAlt:before {
+    content: "\f879";
+}
+.faBusinessHours:before {
+    content: "\f64a";
+}

@@ -15,10 +15,12 @@ def manufacturer_page_detail(request, slug):
 
 def site_info(request):
     info = SiteInfo.objects.first()
+    manufacturer_pages = list(ManufacturerPage.objects.all().values_list('url_slug', flat=True))
     return JsonResponse({
         'site_description': info.site_description,
         'site_logo': info.site_logo,
         'address': info.address,
         'phone': info.phone,
         'email': info.email,
+        'manufacturer_pages': manufacturer_pages,
     })

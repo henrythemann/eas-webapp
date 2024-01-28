@@ -1,6 +1,6 @@
-import '../styles/global.css';
+import '/styles/global.css';
 import Head from 'next/head';
-import useScrollRestoration from "../hooks/useScrollRestoration";
+import useScrollRestoration from "/hooks/useScrollRestoration";
 
 function EASApp({ Component, pageProps, router }) {
     useScrollRestoration(router);

@@ -1,0 +1,43 @@
+.header {
+    background-color: var(--background-color);
+    height: 52px;
+    color: var(--background-font-color);
+}
+.header .container {
+    height: 100%;
+}
+.header .contactInfoContainer {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.addressAndHoursContainer {
+    display: flex;
+}
+.addressAndHoursContainer div {
+    margin: auto 35px auto 0;
+    font-weight: 300;
+}
+.header .addressAndHoursContainer .icon {
+    margin-right: 7px;
+}
+.redPhoneButtonContainer {
+    background-color: var(--accent-color);
+    display: flex;
+    transition: background-color 0.3s ease-in-out;
+}
+.redPhoneButton {
+    display: block;
+    padding: 0 25px;
+    margin: auto 0;
+    font-weight: 600;
+}
+.redPhoneButtonContainer:hover {
+    background-color: var(--accent-dark);
+}
+
+@media (max-width: 575px) {
+    .header {
+        display: none;
+    }
+}

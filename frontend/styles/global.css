@@ -1,5 +1,18 @@
 :root {
   --accent-color: #ff2a39;
+  --accent-dark: #e10c1b;
+  --background-color: #002260;
+  --font-color: #000;
+  --page-color: #fff;
+  --background-font-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-color: #10151e;
+    --font-color: #fff;
+    --background-color: #001439;
+  }
 }
 
 @font-face {
@@ -28,6 +41,8 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
+  background-color: var(--page-color);
+  color: var(--font-color);
 }
 
 a {
@@ -45,6 +60,6 @@ img {
 }
 
 footer {
-  background: #002260;
+  background: var(--background-color);
   padding-top: 70px;
 }

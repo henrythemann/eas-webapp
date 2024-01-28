@@ -1,5 +1,6 @@
 import styles from '/styles/eas.module.css';
 import Footer from '/components/Footer';
+import Header from '/components/Header';
 
 export async function getStaticPaths() {
     return {
@@ -25,6 +26,7 @@ export async function getStaticProps(context) {
 export default function Manufacturer({ data }) {
     let pageTitle = data.url_slug.replace(/[-_]/g, ' ');
     return (<>
+        <Header></Header>
         <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
             <div className={styles.container}>
                 <h1>{pageTitle}</h1>

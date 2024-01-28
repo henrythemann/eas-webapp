@@ -1,5 +1,5 @@
 footer.footer {
-    color: #fff;
+    color: var(--background-font-color);
 }
 
 .contactInfoItem {
@@ -18,15 +18,6 @@ footer.footer {
 
 footer .fa, .fas {
     color: var(--accent-color)
-}
-.faMapMarkerAlt:before {
-    content: "\f3c5";
-}
-.faEnvelope:before {
-    content: "\f0e0";
-}
-.faPhoneAlt:before {
-    content: "\f879";
 }
 
 footer .creditCardSection {

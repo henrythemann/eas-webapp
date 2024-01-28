@@ -1,7 +1,7 @@
 import styles from '/styles/eas.module.css';
 import footerStyles from '/styles/footer.module.css';
 import Link from 'next/link';
-import siteInfo from '../data/siteInfo';
+import siteInfo from '/data/siteInfo';
 
 export default function Footer() {
     return (
@@ -9,13 +9,13 @@ export default function Footer() {
             <section className={styles.container}>
                 <div className={footerStyles.contactInfoContainer}>
                     <div className={footerStyles.contactInfoItem}>
-                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, footerStyles.faMapMarkerAlt, footerStyles.icon].join(' ')}></span><span dangerouslySetInnerHTML={{__html: siteInfo.address}}></span>
+                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faMapMarkerAlt, footerStyles.icon].join(' ')}></span><a href="https://maps.app.goo.gl/efyAT2CnbnyzgBCV9" target='_blank' rel='noopener noreferrer'>{siteInfo.address}</a>
                     </div>
                     <div className={footerStyles.contactInfoItem}>
-                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, footerStyles.faEnvelope, footerStyles.icon].join(' ')}></span><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
+                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faEnvelope, footerStyles.icon].join(' ')}></span><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
                     </div>
                     <div className={footerStyles.contactInfoItem}>
-                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, footerStyles.faPhoneAlt, footerStyles.icon].join(' ')}></span><a href={`tel:${siteInfo.phone}`}>{`${siteInfo.phone.substr(0,3)}.${siteInfo.phone.substr(3,3)}.${siteInfo.phone.substr(6)}`}</a>
+                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faPhoneAlt, footerStyles.icon].join(' ')}></span><a href={`tel:${siteInfo.phone}`}>{`${siteInfo.phone.substr(0,3)}.${siteInfo.phone.substr(3,3)}.${siteInfo.phone.substr(6)}`}</a>
                     </div>
                 </div>
             </section>
