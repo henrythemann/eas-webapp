@@ -1,13 +1,13 @@
 from django.http import JsonResponse
 from .models import ManufacturerPage, SiteInfo
 
-def manufacturer_page_detail(request, slug):
-    page = ManufacturerPage.objects.filter(url_slug=slug).first()
+def manufacturer_page_detail(request, url_slug):
+    page = ManufacturerPage.objects.filter(page_title=url_slug.replace('-',' ').title()).first()
     if page:
         return JsonResponse({
-            'title': page.html_title,
+            'page_title': page.page_title,
+            'html_title': page.html_title,
             'content': page.content,
-            'url_slug': page.url_slug,
             'hero_bkgd_img': page.hero_bkgd_img,
         })
     else:

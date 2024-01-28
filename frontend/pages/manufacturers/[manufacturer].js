@@ -1,6 +1,4 @@
 import styles from '/styles/eas.module.css';
-import Footer from '/components/Footer';
-import Header from '/components/Header';
 
 export async function getStaticPaths() {
     return {
@@ -13,8 +11,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
     // Extract the manufacturer slug from the URL
-    const { manufacturer } = context.params;
-  
+    let { manufacturer } = context.params;
+    manufacturer = manufacturer.replace(/ /g, '-').toLowerCase();
+
     // Fetch data from Django API
     const response = await fetch(`http://localhost:8000/api/manufacturers/${manufacturer}`);
     const data = await response.json();
@@ -24,21 +23,18 @@ export async function getStaticProps(context) {
 }
 
 export default function Manufacturer({ data }) {
-    let pageTitle = data.url_slug.replace(/[-_]/g, ' ');
     return (<>
-        <Header></Header>
         <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
             <div className={styles.container}>
-                <h1>{pageTitle}</h1>
+                <h1>{data.page_title}</h1>
             </div>
         </section>
         <section>
             <div className={styles.container}>
-                <h1>{pageTitle} Repair Specialists</h1>
+                <h2>{data.page_title} Repair Specialists</h2>
                 <p dangerouslySetInnerHTML={{__html: data.content}}></p>
             </div>
         </section>
-        <Footer></Footer>
         </>
   );
 }
