@@ -3,17 +3,21 @@
   --accent-dark: #e10c1b;
   --background-color: #002260;
   --font-color: #000;
+  --font-color-light: #34373b;
   --page-color: #fff;
   --background-font-color: #fff;
+  --service-section-background: #262626;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --page-color: #10151e;
     --font-color: #fff;
+    --font-color-light: #b9bcc1;
     --background-color: #001439;
+    --service-section-background: #616696;
   }
-}
+} */
 
 @font-face {
   font-family: "Font Awesome 5 Free";

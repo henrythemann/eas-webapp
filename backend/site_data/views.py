@@ -9,6 +9,8 @@ def manufacturer_page_detail(request, url_slug):
             'html_title': page.html_title,
             'content': page.content,
             'hero_bkgd_img': page.hero_bkgd_img,
+            'article_subtitle': page.article_subtitle,
+            'services': list(page.service_set.all().values_list('service_name', flat=True)),
         })
     else:
         return JsonResponse({'error': 'Page not found'}, status=404)

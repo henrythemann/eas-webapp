@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import ManufacturerPage, SiteInfo
+from .models import ManufacturerPage, ManufacturerPageAdmin, SiteInfo
 
-admin.site.register(ManufacturerPage)
+admin.site.register(ManufacturerPage, ManufacturerPageAdmin) 
 @admin.register(SiteInfo)
 class SiteInfoAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
