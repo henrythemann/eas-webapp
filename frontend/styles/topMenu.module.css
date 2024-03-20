@@ -1,0 +1,94 @@
+.navBarContainer {
+    z-index: 100;
+}
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+.logoContainer {
+    margin: auto 0;
+}
+.logo {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+}
+
+.navbarToggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+@media (max-width: 991px) {
+    .navbarToggler {
+        cursor: pointer;
+        position: relative;
+        height: 20px;
+        width: 30px;
+        top: 0px;
+        border: none;
+        padding: 0px;
+        margin-top: 26px;
+        margin-bottom: 26px;
+    }
+    .navbarToggler span,
+    .navbarToggler span:after,
+    .navbarToggler span:before {
+        background: var(--accent-color);
+    }
+    .navbarToggler span:after,
+    .navbarToggler span:before {
+        content: "";
+        height: 2px;
+        width: 30px;
+        display: block;
+        left: 0px;
+        position: absolute;
+        /* transition: bottom .2s .3s, -webkit-transform .3s 0s; */
+    }
+    .navbarToggler span:after {
+        bottom: -10px;
+        transition: bottom .3s .3s, transform .3s 0s, -webkit-transform .3s 0s;
+    }
+    .navbarToggler span:before {
+        top: -10px;
+        transition: top .3s .3s, transform .3s 0s, -webkit-transform .3s 0s;
+    }
+    .navbarToggler span {
+        height: 2px;
+        width: 30px;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transition: background .2s .3s;
+    }
+    .navbarToggler[aria-expanded="true"] span {
+        background: transparent;
+    }
+    .navbarToggler[aria-expanded="true"] span:before {
+        transform: rotate(45deg);
+        top: 0px;
+        transition: transform .3s .3s, -webkit-transform .3s .3s, top .3s 0s;
+    }
+    .navbarToggler[aria-expanded="true"] span:after {
+        transform: rotate(-45deg);
+        bottom: 0px;
+        transition: transform .3s .3s, -webkit-transform .3s .3s, bottom .3s 0s;
+    }
+}
+
+.navigationContainer.collapse {
+    margin-top: -99px;
+}
+.navigationContainer {
+    position: absolute;
+    flex-basis: 100%;
+    transition: margin-top 0.3s ease-in-out;
+    z-index: 0;
+}

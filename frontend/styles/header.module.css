@@ -2,6 +2,8 @@
     background-color: var(--background-color);
     height: 52px;
     color: var(--background-font-color);
+    z-index: 100;
+    position: relative;
 }
 .header .container {
     height: 100%;

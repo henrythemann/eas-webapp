@@ -30,6 +30,7 @@ export default function Manufacturer({ data }) {
         <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
             <div className={styles.container}>
                 <h1>{data.page_title}</h1>
+                <div className={styles.subheading}>European Auto Service | Reseda</div>
             </div>
         </section>
         <section className={styles.mainArticleSection}>
@@ -45,16 +46,18 @@ export default function Manufacturer({ data }) {
                 <div className={styles.row}>
                     {servicesHalves.map((serviceHalf, index) => {
                         return ( 
-                            <div className={[styles.servicesContainer, styles.colLg6, styles.colMd6].join(' ')}>
-                                {serviceHalf.map((service, index) => {
-                                    return(
-                                        <div key={index} className={styles.serviceItemContainer}>
-                                            <span aria-hidden="true" className={[styles.fas, styles.faCheck].join(' ')}></span>
-                                            <span className={styles.serviceName}>{service}</span>
-                                        </div>
-                                )})}
-                            </div>
-                            );
+                        <div key={index} className={[styles.servicesContainer, styles.colLg6, styles.colMd6].join(' ')}>
+                            <ul>
+                            {serviceHalf.map((service, index) => {
+                                return(
+                                <li key={index} className={styles.serviceItemContainer}>
+                                    <span aria-hidden="true" className={[styles.fas, styles.faCheck].join(' ')}></span>
+                                    <span className={styles.serviceName}>{service}</span>
+                                </li>
+                            )})}
+                            </ul>
+                        </div>
+                        );
                     })}
                 </div>
             </div>

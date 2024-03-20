@@ -17,7 +17,7 @@ def manufacturer_page_detail(request, url_slug):
 
 def site_info(request):
     info = SiteInfo.objects.first()
-    manufacturer_pages = list(ManufacturerPage.objects.all().values_list('url_slug', flat=True))
+    manufacturer_pages = list(ManufacturerPage.objects.all().values_list('page_title', flat=True))
     return JsonResponse({
         'site_description': info.site_description,
         'site_logo': info.site_logo,

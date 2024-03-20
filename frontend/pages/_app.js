@@ -3,6 +3,7 @@ import Head from 'next/head';
 import useScrollRestoration from "/hooks/useScrollRestoration";
 import Footer from '/components/Footer';
 import Header from '/components/Header';
+import TopMenu from '/components/TopMenu';
 
 function EASApp({ Component, pageProps, router }) {
     useScrollRestoration(router);
@@ -13,6 +14,7 @@ function EASApp({ Component, pageProps, router }) {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <Header></Header>
+        <TopMenu></TopMenu>
         <Component {...pageProps} />
         <Footer></Footer>
     </>);
