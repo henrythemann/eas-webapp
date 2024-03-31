@@ -84,14 +84,16 @@
         transition: transform .3s .3s, -webkit-transform .3s .3s, bottom .3s 0s;
     }
 }
-
+.navigationContainerContainer {
+    background: var(--page-color);
+    width: 100%;
+    position: absolute;
+    z-index: 50;
+    top: -500px;
+    padding-bottom: 13px;
+}
 .navigationContainer {
     flex-basis: 100%;
-    z-index: 50;
-    position: absolute;
-    background: var(--page-color);
-    top: -500px;
-    width: 100%;
 }
 .navigationContainer ul {
     list-style-type: none;

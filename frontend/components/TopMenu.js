@@ -88,7 +88,8 @@ export default function TopMenu({ headerRef }) {
 
     return (
         <>
-        <animated.div ref={menuRef} style={menuAnimation} className={topMenuStyles.navigationContainer}>
+        <animated.div ref={menuRef} style={menuAnimation} className={topMenuStyles.navigationContainerContainer}>
+        <div className={[topMenuStyles.navigationContainer, styles.container].join(' ')}>
             <ul className={topMenuStyles.navigationPages}>
                 {siteInfo.pages.map((page, index) => {
                     if (page['group'] !== undefined) {
@@ -103,6 +104,7 @@ export default function TopMenu({ headerRef }) {
                     }
                 })}
             </ul>
+        </div>
         </animated.div>
         <div className={topMenuStyles.navBarContainer}>
         <div className={styles.container} ref={navBarRef}>
