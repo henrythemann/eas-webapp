@@ -1,6 +1,7 @@
 import styles from '/styles/eas.module.css';
 import { useEffect } from 'react';
 import siteInfo from '/data/siteInfo';
+import ManufacturerLogos from '/components/ManufacturerLogos';
 
 export async function getStaticPaths() {
     let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: x.title.toLowerCase().replace(' ','-') } }));
@@ -70,6 +71,7 @@ export default function Manufacturer({ data, setTitle }) {
                 </div>
             </div>
         </section>
+        <ManufacturerLogos></ManufacturerLogos>
         </>
   );
 }

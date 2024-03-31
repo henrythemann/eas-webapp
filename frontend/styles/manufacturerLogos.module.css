@@ -1,0 +1,14 @@
+.manufacturerLogosContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0rem 3rem;
+    padding: 2rem;
+}
+
+@media (max-width: 826px) {
+    .manufacturerLogosContainer {
+        gap: 0rem 5vw;
+    }
+}

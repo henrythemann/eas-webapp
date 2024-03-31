@@ -1,6 +1,6 @@
 .header {
     background-color: var(--background-color);
-    height: 52px;
+    height: 3.25rem;
     color: var(--background-font-color);
     z-index: 100;
     position: relative;
@@ -18,12 +18,12 @@
 }
 .addressAndHoursContainer div {
     display: flex;
-    margin: auto 35px auto 0;
+    margin: auto 2.1875rem auto 0;
     font-weight: 300;
 }
 .header .addressAndHoursContainer .icon {
-    margin-right: 7px;
-    margin-top: 3px;
+    margin-right: 0.4375rem;
+    margin-top: 0.1875rem;
 }
 .redPhoneButtonContainer {
     background-color: var(--accent-color);
@@ -32,7 +32,7 @@
 }
 .redPhoneButton {
     display: block;
-    padding: 0 25px;
+    padding: 0 1.5625rem;
     margin: auto 0;
     font-weight: 600;
 }
@@ -49,6 +49,6 @@
 
 @media (max-width: 767px) {
     .addressAndHoursContainer {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 }

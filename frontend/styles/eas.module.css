@@ -9,7 +9,7 @@
 }
 .heroSection {
     background-size: cover;
-    padding: 120px 0px 118px 0px;
+    padding: 7.5rem 0 7.375rem 0;
     position: relative;
     background-repeat: no-repeat;
 }
@@ -20,39 +20,39 @@
     position: relative;
 }
 .heroSection h1 {
-    font-size: 60px;
-    margin-bottom: 12px;
+    font-size: 3.75rem;
+    margin-bottom: 0.75rem;
 }
 .heroSection .subheading {
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 .articleTitle {
     font-weight: bold;
-    font-size: 32px;
+    font-size: 2rem;
 }
 .articleTitle span {
     color: var(--accent-color);
 }
 .articleSubtitle {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--font-color-light);
     border-bottom: 2px solid #6ec1e4;
-    padding: 0 10px 10px 0px;
+    padding: 0 0.625rem 0.625rem 0px;
 }
 .mainArticleSection {
-    padding: 30px 0px 60px 0px;
+    padding: 1.875rem 0px 3.75rem 0px;
 }
 .mainArticleSection p {
-    line-height: 28px;
+    line-height: 1.75rem;
 }
 .servicesSection {
-    padding: 24px 0 32px 0;
+    padding: 1.5rem 0 2rem 0;
     background-color: var(--service-section-background);
     color: var(--background-font-color);
 }
 .servicesSection h2 {
-    font-size: 44px;
+    font-size: 2.75rem;
 }
 .servicesSection ul {
     padding: 0;
@@ -60,21 +60,21 @@
 }
 @media (max-width: 575px) {
     .servicesSection h2 {
-        font-size: 32px;
+        font-size: 2rem;
     }
 }
 .servicesSection .faCheck {
     color: #6ac358;
     position: absolute;
     left: 0;
-    top: 6px;
+    top: 0.375rem;
 }
 .serviceItemContainer {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     position: relative;
-    padding-left: 30px;
+    padding-left: 1.875rem;
     list-style-type: none;
-    line-height: 28px;
+    line-height: 1.75rem;
 }
 
 /* stuff from bootstrap */
@@ -85,8 +85,8 @@
 
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
     margin-right: auto;
     margin-left: auto
 }
@@ -120,8 +120,8 @@
 .col, .col1, .col10, .col11, .col12, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .colAuto, .colLg, .colLg1, .colLg10, .colLg11, .colLg12, .colLg2, .colLg3, .colLg4, .colLg5, .colLg6, .colLg7, .colLg8, .colLg9, .colLg-auto, .colMd, .colMd1, .colMd10, .colMd11, .colMd12, .colMd2, .colMd3, .colMd4, .colMd5, .colMd6, .colMd7, .colMd8, .colMd9, .colMd-auto, .colSm, .colSm1, .colSm10, .colSm11, .colSm12, .colSm2, .colSm3, .colSm4, .colSm5, .colSm6, .colSm7, .colSm8, .colSm9, .colSm-auto, .colXl, .colXl1, .colXl10, .colXl11, .colXl12, .colXl2, .colXl3, .colXl4, .colXl5, .colXl6, .colXl7, .colXl8, .colXl9, .colXlAuto {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem;
 }
 @media (min-width: 992px) {
     .colLg6 {
@@ -142,8 +142,8 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: -0.9375rem;
+    margin-left: -0.9375rem;
 }
 
 /* stuff from fontawesome */
