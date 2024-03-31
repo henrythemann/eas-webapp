@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from .models import ManufacturerPage, SiteInfo
 
 def manufacturer_page_detail(request, url_slug):
-    page = ManufacturerPage.objects.filter(page_title=url_slug.replace('-',' ').title()).first()
+    page = ManufacturerPage.objects.filter(page_title__iexact=url_slug.replace('-',' ')).first()
     if page:
         return JsonResponse({
             'page_title': page.page_title,
