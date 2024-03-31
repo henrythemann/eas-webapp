@@ -8,17 +8,18 @@ import TopMenu from '/components/TopMenu';
 
 function EASApp({ Component, pageProps, router }) {
     const headerRef = React.createRef();
+    const [htmlTitle, setHtmlTitle] = React.useState('European Auto Service');
 
     useScrollRestoration(router);
     return (<>
         <Head>
-            <title>European Auto Service</title>
+            <title>{htmlTitle}</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <link rel="icon" href="/favicon.svg" />
         </Head>
         <Header ref={headerRef}></Header>
         <TopMenu headerRef={headerRef}></TopMenu>
-        <Component {...pageProps} />
+        <Component {...pageProps} setTitle={setHtmlTitle}/>
         <Footer></Footer>
     </>);
 }

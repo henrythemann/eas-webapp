@@ -1,10 +1,12 @@
 import styles from '/styles/eas.module.css';
+import { useEffect } from 'react';
+import siteInfo from '/data/siteInfo';
 
 export async function getStaticPaths() {
+    let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: x.title.toLowerCase() } }));
+
     return {
-        paths: [
-            { params: { manufacturer: 'ferrari' } },
-        ],
+        paths: pathsArray,
         fallback: false
     }
 }
@@ -22,9 +24,15 @@ export async function getStaticProps(context) {
     return { props: { data } };
 }
 
-export default function Manufacturer({ data }) {
+export default function Manufacturer({ data, setTitle }) {
     const servicesMidpoint = Math.ceil(data.services.length / 2);
     let servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
+
+    useEffect(() => {
+        if (data.html_title) {
+            setTitle(data.html_title);
+        }
+    }, [data.html_title]);
 
     return (<>
         <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>

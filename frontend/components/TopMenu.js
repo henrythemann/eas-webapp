@@ -16,10 +16,7 @@ export default function TopMenu({ headerRef }) {
     const menuHeight = useRef(0);
     const [menuTop, setMenuTop] = useState(-9999);
     const instantAnimationRef = useRef(false);
-
-    useEffect(() => {
-        console.log(`menuOpen changed to: ${menuOpen}`);
-      }, [menuOpen]);
+    const handleResizeRef = useRef();
 
     // update the height of the menu
     const updateMenuHeight = () => {
@@ -47,26 +44,29 @@ export default function TopMenu({ headerRef }) {
         updateTopPosition();
     }, [menuOpen]);
     
+    // Function to reset instant animation after debouncing
+    const debouncedResetInstantAnimation = debounce(() => {
+        instantAnimationRef.current = false;
+    }, 100);
+
+    // when window resizes, make animation instant & update the menu height and top position
+    // Store the function in a ref so that it can be used in the event listener without stale closure
+    handleResizeRef.current = () => {
+        instantAnimationRef.current = true;
+        updateMenuHeight();
+        updateTopPosition();
+    }
     // Update the top value when the viewport size changes
-    useEffect(() => {    
-        // when window resizes, make animation instant & update the menu height and top position
-        const handleResize = () => {
-            instantAnimationRef.current = true;
-            updateMenuHeight();
-            updateTopPosition();
-        }
-        // Function to reset instant animation after debouncing
-        const debouncedResetInstantAnimation = debounce(() => {
-            instantAnimationRef.current = false;
-        }, 100);
+    useLayoutEffect(() => {    
+        const eventListener = () => handleResizeRef.current();
         // Add event listener for window resize
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', eventListener);
         // Debounce the reset of instant animation
         window.addEventListener('resize', debouncedResetInstantAnimation);
         
         // Clean up the event listener
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', eventListener);
             window.removeEventListener('resize', debouncedResetInstantAnimation);
             debouncedResetInstantAnimation.cancel();
         };
@@ -85,6 +85,11 @@ export default function TopMenu({ headerRef }) {
         setMenuOpen(!menuOpenRef.current);
         menuOpenRef.current = !menuOpenRef.current;
     }
+    const toggleMenuInstant = () => {
+        instantAnimationRef.current = true;
+        toggleMenu();
+        debouncedResetInstantAnimation();
+    }
 
     return (
         <>
@@ -93,12 +98,12 @@ export default function TopMenu({ headerRef }) {
             <ul className={topMenuStyles.navigationPages}>
                 {siteInfo.pages.map((page, index) => {
                     if (page['group'] !== undefined) {
-                        return (<ExpandableSubMenu page={page} key={index}></ExpandableSubMenu>);
+                        return (<ExpandableSubMenu page={page} key={index} toggleParentMenu={toggleMenuInstant}></ExpandableSubMenu>);
                     }
                     else {
                         return (
                             <li key={index} className={topMenuStyles.navigationItem}>
-                                <Link href={page['link']} className={topMenuStyles.navigationLink}>{page.title}</Link>
+                                <Link onClick={toggleMenuInstant} href={page['link']} className={topMenuStyles.navigationLink}>{page.title}</Link>
                             </li>
                         )
                     }
@@ -109,7 +114,7 @@ export default function TopMenu({ headerRef }) {
         <div className={topMenuStyles.navBarContainer}>
         <div className={styles.container} ref={navBarRef}>
             <nav className={topMenuStyles.navBar}>
-                <Link className={topMenuStyles.logoContainer} href="/"><img className={topMenuStyles.logo} src='/images/eas-logo-with-text.svg' /></Link>
+                <Link className={topMenuStyles.logoContainer} href="/"><img className={topMenuStyles.logo} src='/images/eas-logo-with-text.svg'/></Link>
                 <button className={[topMenuStyles.navbarToggler, (menuOpen ? undefined : topMenuStyles.collapsed)].join(' ')} onClick={toggleMenu} ref={menuButton} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={menuOpen} aria-label="Toggle navigation">
                     <span></span>
                 </button>
