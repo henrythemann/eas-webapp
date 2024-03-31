@@ -136,3 +136,26 @@
     background: #34373b;
     transition: all .2s linear;
 }
+
+.navigationItem {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+.navigationItem a {
+    cursor: pointer;
+}
+
+.subMenuCollapsed {
+    max-height: 0;
+}
+.subMenuContainer {
+    overflow: hidden;
+    transition: max-height .3s ease-in-out;
+}
+
+@media (max-width: 444px) {
+    .logoContainer {
+        width: 70%;
+    }
+}

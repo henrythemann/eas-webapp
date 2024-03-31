@@ -17,11 +17,13 @@
     display: flex;
 }
 .addressAndHoursContainer div {
+    display: flex;
     margin: auto 35px auto 0;
     font-weight: 300;
 }
 .header .addressAndHoursContainer .icon {
     margin-right: 7px;
+    margin-top: 3px;
 }
 .redPhoneButtonContainer {
     background-color: var(--accent-color);
