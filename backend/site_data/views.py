@@ -6,7 +6,6 @@ def manufacturer_page_detail(request, url_slug):
     if page:
         return JsonResponse({
             'page_title': page.page_title,
-            'html_title': page.html_title,
             'content': page.content,
             'hero_bkgd_img': page.hero_bkgd_img,
             'article_subtitle': page.article_subtitle,

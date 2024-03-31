@@ -3,7 +3,6 @@ from django.contrib import admin
 
 class Page(models.Model):
     page_title = models.CharField(max_length=50, unique=True)
-    html_title = models.CharField(max_length=200)
     hero_bkgd_img = models.CharField(max_length=200, blank=True)
     last_update = models.DateTimeField(auto_now=True)
     def __str__(self):

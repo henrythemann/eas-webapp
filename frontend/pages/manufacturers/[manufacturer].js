@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import siteInfo from '/data/siteInfo';
 
 export async function getStaticPaths() {
-    let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: x.title.toLowerCase() } }));
+    let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: x.title.toLowerCase().replace(' ','-') } }));
 
     return {
         paths: pathsArray,
@@ -29,8 +29,8 @@ export default function Manufacturer({ data, setTitle }) {
     let servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
 
     useEffect(() => {
-        if (data.html_title) {
-            setTitle(data.html_title);
+        if (data.page_title) {
+            setTitle(`Independent ${data.page_title} Repair Shop Los Angeles | European Auto Service`);
         }
     }, [data.html_title]);
 
