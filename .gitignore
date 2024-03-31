@@ -23,6 +23,7 @@ frontend/data/siteInfo.json
 .DS_Store
 frontend/public/webfonts/
 *.webp
+eas logo/*
 
 # debug
 npm-debug.log*

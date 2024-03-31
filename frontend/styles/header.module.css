@@ -41,5 +41,12 @@
 @media (max-width: 575px) {
     .header {
         display: none;
+        max-height: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .addressAndHoursContainer {
+        font-size: 13px;
     }
 }

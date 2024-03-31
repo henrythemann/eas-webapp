@@ -18,11 +18,35 @@ def manufacturer_page_detail(request, url_slug):
 def site_info(request):
     info = SiteInfo.objects.first()
     manufacturer_pages = list(ManufacturerPage.objects.all().values_list('page_title', flat=True))
+    page_dicts = [{'title': page, 'link': f"/manufacturers/{page.lower().replace(' ','-')}"} for page in manufacturer_pages]
+
     return JsonResponse({
         'site_description': info.site_description,
         'site_logo': info.site_logo,
         'address': info.address,
         'phone': info.phone,
         'email': info.email,
-        'manufacturer_pages': manufacturer_pages,
+        'pages': [
+            {
+                'title': 'Home',
+                'link': '/'
+            },
+            {
+                'title': 'About',
+                'link': '/about'
+            },
+            {
+                'group': 'manufacturers',
+                'title': 'Vehicles We Service',
+                'pages': page_dicts
+            },
+            {
+                'title': 'Reviews',
+                'link': '/reviews'
+            },
+            {
+                'title': 'Contact',
+                'link': '/contact'
+            }
+        ]
     })

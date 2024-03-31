@@ -1,10 +1,11 @@
+import { forwardRef } from 'react';
 import styles from '/styles/eas.module.css'
 import headerStyles from '/styles/header.module.css'
 import siteInfo from '/data/siteInfo';
 
-export default function Header() {
+const Header = forwardRef((props, ref) => {
     return (
-        <header>
+        <header ref={ref}>
             <div className={headerStyles.header}>
                 <div className={[styles.container, headerStyles.container].join(' ')}>
                     <div className={headerStyles.contactInfoContainer}>
@@ -25,4 +26,6 @@ export default function Header() {
             </div>
         </header>
     )
-}
+});
+
+export default Header;

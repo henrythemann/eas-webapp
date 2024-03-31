@@ -1,5 +1,7 @@
 .navBarContainer {
     z-index: 100;
+    position: relative;
+    background-color: var(--page-color);
 }
 .navBar {
     display: flex;
@@ -83,12 +85,52 @@
     }
 }
 
-.navigationContainer.collapse {
-    margin-top: -99px;
-}
 .navigationContainer {
-    position: absolute;
     flex-basis: 100%;
-    transition: margin-top 0.3s ease-in-out;
-    z-index: 0;
+    z-index: 50;
+    position: absolute;
+    background: var(--page-color);
+    top: -500px;
+    width: 100%;
+}
+.navigationContainer ul {
+    list-style-type: none;
+}
+.navigationContainer > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.navigationContainer > ul > li:first-child {
+    padding-top: 5px;
+}
+.navigationContainer li {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.navigationContainer li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.navigationContainer .expandIcon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    z-index: 2;
+    transform: translateY(-50%);
+}
+.expandIcon:before {
+    top: 6px;
+    width: 100%;
+    height: 2px;
+}
+.expandIcon:before, .expandIcon:after {
+    content: "";
+    position: absolute;
+    background: #34373b;
+    transition: all .2s linear;
 }
