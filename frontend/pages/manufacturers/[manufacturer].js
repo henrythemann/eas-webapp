@@ -26,8 +26,11 @@ export async function getStaticProps(context) {
 }
 
 export default function Manufacturer({ data, setTitle }) {
-    const servicesMidpoint = Math.ceil(data.services.length / 2);
-    let servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
+    let servicesHalves = [];
+    if (data.services) {
+        const servicesMidpoint = Math.ceil(data.services.length / 2);
+        servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
+    }
 
     useEffect(() => {
         if (data.page_title) {
@@ -49,6 +52,7 @@ export default function Manufacturer({ data, setTitle }) {
                 <p dangerouslySetInnerHTML={{__html: data.content}}></p>
             </div>
         </section>
+        {data.services && (
         <section className={styles.servicesSection}>
             <div className={styles.container}>
                 <h2 className={styles.sectionTitle}>{data.page_title} Repair Services / Common Problems</h2>
@@ -71,6 +75,7 @@ export default function Manufacturer({ data, setTitle }) {
                 </div>
             </div>
         </section>
+        )};
         <ManufacturerLogos></ManufacturerLogos>
         </>
   );

@@ -93,10 +93,11 @@ export default function TopMenu({ headerRef }) {
 
     return (
         <>
-        <animated.div ref={menuRef} style={menuAnimation} className={topMenuStyles.navigationContainerContainer}>
+        <animated.div ref={menuRef} style={menuAnimation} className={topMenuStyles.dropDownMenu}>
         <div className={[topMenuStyles.navigationContainer, styles.container].join(' ')}>
             <ul className={topMenuStyles.navigationPages}>
                 {siteInfo.pages.map((page, index) => {
+                    // links in nav bar's dropdown menu (when the window is narrow)
                     if (page['group'] !== undefined) {
                         return (<ExpandableSubMenu page={page} key={index} toggleParentMenu={toggleMenuInstant}></ExpandableSubMenu>);
                     }
@@ -118,6 +119,27 @@ export default function TopMenu({ headerRef }) {
                 <button className={[topMenuStyles.navbarToggler, (menuOpen ? undefined : topMenuStyles.collapsed)].join(' ')} onClick={toggleMenu} ref={menuButton} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={menuOpen} aria-label="Toggle navigation">
                     <span></span>
                 </button>
+                <ul className={topMenuStyles.navigationLinks}>
+                {siteInfo.pages.map((page, index) => {
+                    // links in nav bar when the window is wide
+                    return (
+                        <li key={index}>
+                            <div className={topMenuStyles.linkWrapperWrapper}>
+                            <div className={topMenuStyles.linkWrapper}>
+                            <Link href={page['link'] ?? '#'}>{page.title}</Link>
+                            </div>
+                            {(page['group'] !== undefined) && (
+                                <div className={topMenuStyles.linkMenu}>
+                                {page['pages'].map((subPage, subIndex) => (
+                                        <Link key={subIndex} href={subPage.link} className={topMenuStyles.subNavigationLink}>{subPage.title}</Link>
+                                ))}
+                                </div>
+                            )}
+                            </div>
+                        </li>
+                    )
+                })}
+            </ul>
             </nav>
         </div>
         </div>

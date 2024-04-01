@@ -26,6 +26,10 @@
     border-radius: 0.25rem;
 }
 @media (max-width: 991px) {
+    ul.navigationLinks {
+        display: none;
+        overflow: hidden;
+    }
     .navbarToggler {
         cursor: pointer;
         position: relative;
@@ -84,7 +88,12 @@
         transition: transform .3s .3s, -webkit-transform .3s .3s, bottom .3s 0s;
     }
 }
-.navigationContainerContainer {
+@media (min-width: 991px) {
+    .dropDownMenu {
+        display: none;
+    }
+}
+.dropDownMenu {
     background: var(--page-color);
     width: 100%;
     position: absolute;
@@ -174,6 +183,85 @@
 
 .subMenuContainer {
     overflow: hidden;
+}
+
+.navigationLinks {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    margin: 0;
+}
+.navigationLinks li {
+    display: inline-block;
+    height: 100%;
+    align-content: center;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.navigationLinks .linkMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: .7rem;
+    background: var(--page-color);
+}
+.navigationLinks li .linkWrapper {
+    position: relative;
+    height: 100%;
+    align-content: center;
+    overflow: hidden;
+}
+.navigationLinks li:hover .linkMenu {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+.navigationLinks .linkMenu a {
+    display: block;
+    color: var(--font-color);
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.navigationLinks li:hover .linkWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    box-shadow: inset 0px -1px var(--accent-color);
+    animation: moveShadow 0.3s linear;
+}
+
+@keyframes moveShadow {
+    0% {
+        transform: translateX(-100%);
+        /* Start from the left, fully hidden */
+    }
+
+    100% {
+        transform: translateX(0%);
+        /* End at the right, fully hidden */
+    }
+}
+
+.navigationLinks a {
+    color: var(--font-color);
+    padding: 0.625rem 1.25rem;
+}
+
+.linkWrapperWrapper {
+    height: 100%;
 }
 
 @media (max-width: 444px) {
