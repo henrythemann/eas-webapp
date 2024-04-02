@@ -71,6 +71,24 @@ export default function TopMenu({ headerRef }) {
             debouncedResetInstantAnimation.cancel();
         };
     }, []);
+
+    // useEffect to close the menu if the click is outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuOpenRef.current === true && menuRef.current && !menuRef.current.contains(event.target) &&
+                menuButton.current && !menuButton.current.contains(event.target)) {
+                toggleMenuInstant();
+            }
+        };
+
+        // Add click event listener
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            // Remove event listener on cleanup
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
     
     const menuAnimation = useSpring({
         config: { duration: 200 },
@@ -126,7 +144,13 @@ export default function TopMenu({ headerRef }) {
                         <li key={index}>
                             <div className={topMenuStyles.linkWrapperWrapper}>
                             <div className={topMenuStyles.linkWrapper}>
-                            <Link href={page['link'] ?? '#'}>{page.title}</Link>
+                                {page['link'] && (
+                                    <Link href={page['link'] ?? '#'}>{page.title}</Link>
+                                )}
+                                {!page['link'] && (
+                                    <span>{page.title}</span>
+                                )}
+                            
                             </div>
                             {(page['group'] !== undefined) && (
                                 <div className={topMenuStyles.linkMenu}>

@@ -218,7 +218,8 @@
     display: block;
     animation: fadeIn 0.3s ease-in-out;
 }
-.navigationLinks .linkMenu a {
+.navigationLinks .linkMenu a,
+.navigationLinks .linkMenu span {
     display: block;
     color: var(--font-color);
 }
@@ -255,9 +256,13 @@
     }
 }
 
-.navigationLinks a {
+.navigationLinks a,
+.navigationLinks span {
     color: var(--font-color);
     padding: 0.625rem 1.25rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
 }
 
 .linkWrapperWrapper {
