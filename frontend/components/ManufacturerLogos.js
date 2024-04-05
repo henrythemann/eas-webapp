@@ -27,7 +27,7 @@ export default function ManufacturerLogos () {
         return <img src={src} alt={alt} style={style} />;
     }
     return (
-        <div className={manufacturerLogoStyles.manufacturerLogosContainer}>
+        <section className={manufacturerLogoStyles.manufacturerLogosContainer}>
             {siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => (x.title.toLowerCase().replace(' ','-'))).map((manufacturer) => {
                 return (
                     <Link key={manufacturer} href={`/manufacturers/${manufacturer}`}>
@@ -36,6 +36,6 @@ export default function ManufacturerLogos () {
                 )
             }
             )}
-        </div>
+        </section>
     )
 }

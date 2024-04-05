@@ -6,7 +6,7 @@ import siteInfo from '/data/siteInfo';
 export default function Footer() {
     return (
         <footer className={footerStyles.footer}>
-            <section className={styles.container}>
+            <section className={[styles.container, footerStyles.footerFirstSection].join(' ')}>
                 <div className={footerStyles.contactInfoContainer}>
                     <div className={footerStyles.contactInfoItem}>
                         <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faMapMarkerAlt, footerStyles.icon].join(' ')}></span><a href="https://maps.app.goo.gl/efyAT2CnbnyzgBCV9" target='_blank' rel='noopener noreferrer'>{siteInfo.address}</a>
@@ -17,6 +17,31 @@ export default function Footer() {
                     <div className={footerStyles.contactInfoItem}>
                         <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faPhoneAlt, footerStyles.icon].join(' ')}></span><a href={`tel:${siteInfo.phone}`}>{`${siteInfo.phone.substr(0,3)}.${siteInfo.phone.substr(3,3)}.${siteInfo.phone.substr(6)}`}</a>
                     </div>
+                </div>
+                <div>
+                    <div><h3>Info</h3></div>
+                    <ul className={footerStyles.footerNavigation}>
+                        {siteInfo.pages.map((page, index) => {
+                            return (
+                                page['group'] === undefined && page['link'] && (
+                                    <li key={index}>
+                                        <Link href={page['link']}>{page.title}</Link>
+                                    </li>
+                                )
+                            );
+                        })}
+                    </ul>
+                </div>
+                <div className={footerStyles.socialMediaContainer}>
+                    <div><h3>Follow Us</h3></div>
+                    <ul>
+                        <li>
+                            <Link href={siteInfo.yelp_link} target="_blank" rel="nofollow"><i aria-hidden="true" className={[styles.fab, styles.faYelp].join(' ')}></i></Link>
+                        </li>
+                        <li>
+                            <Link href={siteInfo.instagram_link} target="_blank" rel="nofollow"><i aria-hidden="true" className={[styles.fab, styles.faInstagram].join(' ')}></i></Link>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <section className={styles.container}>

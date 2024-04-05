@@ -26,5 +26,7 @@ class SiteInfo(models.Model):
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
+    yelp_link = models.CharField(max_length=200)
+    instagram_link = models.CharField(max_length=200)
     class Meta:
         verbose_name_plural = "Site Info"

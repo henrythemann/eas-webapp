@@ -75,7 +75,7 @@ export default function Manufacturer({ data, setTitle }) {
                 </div>
             </div>
         </section>
-        )};
+        )}
         <ManufacturerLogos></ManufacturerLogos>
         </>
   );

@@ -29,6 +29,11 @@ npm run dev
 ```
 
 # Changing API
+When you change the models, you will need to run this from the backend folder
+```zsh
+python manage.py makemigrations
+python manage.py migrate
+```
 When you change what the /api/site-info endpoint returns, you will need to update the local copy of the site info by running this command
 ```zsh
 curl http://localhost:8000/api/site-info/ > frontend/data/siteInfo.json

@@ -25,7 +25,15 @@
   font-weight: 900;
   font-display: block;
   src: url(/webfonts/fa-solid-900.eot);
-  src: url(/webfonts/fa-solid-900-iefix.eot) format("embedded-opentype"),url(/webfonts/fa-solid-900.woff2) format("woff2"),url(/webfonts/fa-solid-900.woff) format("woff"),url(/webfonts/fa-solid-900.ttf) format("truetype")
+  src: url(/webfonts/fa-solid-900-iefix.eot) format("embedded-opentype"),url(/webfonts/fa-solid-900.woff2) format("woff2"),url(/webfonts/fa-solid-900.woff) format("woff"),url(/webfonts/fa-solid-900.ttf) format("truetype"),url(/webfonts/fa-solid-900.svg) format("svg")
+}
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/webfonts/fa-brands-400.eot);
+  src: url(/webfonts/fa-brands-400-iefix.eot) format("embedded-opentype"),url(/webfonts/fa-brands-400.woff2) format("woff2"),url(/webfonts/fa-brands-400.woff) format("woff"),url(/webfonts/fa-brands-400.ttf) format("truetype"),url(/webfonts/fa-brands-400.svg) format("svg")
 }
 
 html,
@@ -66,6 +74,14 @@ img {
 footer {
   background: var(--background-color);
   padding-top: 70px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
 }
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {

@@ -73,7 +73,6 @@
     margin-bottom: 0.625rem;
     position: relative;
     padding-left: 1.875rem;
-    list-style-type: none;
     line-height: 1.75rem;
 }
 
@@ -150,6 +149,12 @@
 .fa, .fas {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
+}
+.fab {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400
+}
+.fa, .fas, .fab {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     display: inline-block;
@@ -172,4 +177,10 @@
 }
 .faCheck:before {
     content: "\f00c";
+}
+.faYelp:before {
+    content: "\f1e9";
+}
+.faInstagram:before {
+    content: "\f16d";
 }

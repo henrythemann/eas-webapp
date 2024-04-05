@@ -25,6 +25,8 @@ def site_info(request):
         'address': info.address,
         'phone': info.phone,
         'email': info.email,
+        'yelp_link': info.yelp_link,
+        'instagram_link': info.instagram_link,
         'pages': [
             {
                 'title': 'Home',

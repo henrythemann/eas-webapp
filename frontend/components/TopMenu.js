@@ -72,7 +72,7 @@ export default function TopMenu({ headerRef }) {
         };
     }, []);
 
-    // useEffect to close the menu if the click is outside
+    // useEffect to close the menu if user clicks outside of menu or button
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuOpenRef.current === true && menuRef.current && !menuRef.current.contains(event.target) &&
