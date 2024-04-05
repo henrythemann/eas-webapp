@@ -17,6 +17,16 @@
     padding-bottom: 0.3125rem;
 }
 
+.fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.navBarPlaceholder {
+    height: 4rem;
+}
+
 .navbarToggler {
     padding: 0.25rem 0.75rem;
     font-size: 1.25rem;

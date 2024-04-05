@@ -7,6 +7,9 @@
     height: 100%;
     width: 100%;
 }
+.hidden {
+    display: none;
+}
 .heroSection {
     background-size: cover;
     padding: 7.5rem 0 7.375rem 0;
