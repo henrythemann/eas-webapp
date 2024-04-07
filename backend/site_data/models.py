@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib import admin
+from django_summernote.fields import SummernoteTextField
 
 class Page(models.Model):
     page_title = models.CharField(max_length=50, unique=True)
@@ -10,7 +11,7 @@ class Page(models.Model):
 
 class ManufacturerPage(Page):
     article_subtitle = models.CharField(max_length=200, blank=True)
-    content = models.TextField()
+    content = SummernoteTextField()
 class Service(models.Model):
     manufacturer_page = models.ForeignKey(ManufacturerPage, on_delete=models.CASCADE)
     service_name = models.CharField(max_length=200)
