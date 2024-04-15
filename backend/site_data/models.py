@@ -4,25 +4,61 @@ from django_summernote.fields import SummernoteTextField
 
 class Page(models.Model):
     page_title = models.CharField(max_length=50, unique=True)
-    hero_bkgd_img = models.CharField(max_length=200, blank=True)
     last_update = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.page_title
+    class Meta:
+        abstract = True
 
-class ManufacturerPage(Page):
+class CustomAdmin(admin.ModelAdmin):
+    class Media:
+        css = {
+             'all': ('admin/css/admin_custom.css',)
+        }
+    class Meta:
+        abstract = True
+
+class TemplatePage(Page):
+    hero_bkgd_img = models.CharField(max_length=200, blank=True)
     article_subtitle = models.CharField(max_length=200, blank=True)
     content = SummernoteTextField()
+    class Meta:
+        abstract = True
+
+class HomePage(Page):
+    class Meta:
+        verbose_name_plural = "Home Page"
+
+class HomeHeroSection(models.Model):
+    home_page = models.ForeignKey(HomePage, on_delete=models.CASCADE)
+    bkgd_img = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200)
+    btn_text = models.CharField(max_length=200)
+    btn_link = models.CharField(max_length=200)
+
+class HomeHeroSectionInline(admin.TabularInline):
+    model = HomeHeroSection
+    extra = 1
+
+class HomePageAdmin(CustomAdmin):
+    inlines = [HomeHeroSectionInline]
+
+class ManufacturerPage(TemplatePage):
+    pass
+
 class Service(models.Model):
     manufacturer_page = models.ForeignKey(ManufacturerPage, on_delete=models.CASCADE)
     service_name = models.CharField(max_length=200)
-class ServiceInline(admin.StackedInline):
+class ServiceInline(admin.TabularInline):
     model = Service
     extra = 3
-class ManufacturerPageAdmin(admin.ModelAdmin):
+class ManufacturerPageAdmin(CustomAdmin):
     inlines = [ServiceInline]
 
 class SiteInfo(models.Model):
-    site_description = models.CharField(max_length=200)
+    site_description = models.TextField(max_length=200)
+    footer_description = models.CharField(max_length=200)
     site_logo = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)

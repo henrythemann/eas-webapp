@@ -46,7 +46,7 @@ export default function Footer() {
             </section>
             <section className={styles.container}>
             <div className={footerStyles.creditCardSection}>
-                <div className={footerStyles.text}>We are a Tech Net Professional Certified Shop based in Reseda, CA, serving the greater Los Angeles area.</div>
+                <div className={footerStyles.text}>{siteInfo.footer_description}</div>
                 <div className={footerStyles.creditCardsContainer}>
                     <img src="https://www.europeanautoreseda.com/wp-content/uploads/card-1.png" title="visa card" alt="visa card"/><img src="https://www.europeanautoreseda.com/wp-content/uploads/card-3.png" title="amex card" alt="amex card"/><img src="https://www.europeanautoreseda.com/wp-content/uploads/card-2.png" title="mastercard" alt="mastercard"/><img src="https://www.europeanautoreseda.com/wp-content/uploads/card-4.png" title="discover card" alt="discover card"/>
                 </div>

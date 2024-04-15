@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import siteInfo from '/data/siteInfo';
 import '/styles/global.css';
 import Head from 'next/head';
 import useScrollRestoration from "/hooks/useScrollRestoration";
@@ -15,6 +16,9 @@ function EASApp({ Component, pageProps, router }) {
         <Head>
             <title>{htmlTitle}</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content={siteInfo.site_description} />
+            <meta name="og:title" content={htmlTitle} />
+            <meta name="og:description" content={siteInfo.site_description} />
             <link rel="icon" href="/favicon.svg" />
         </Head>
         <Header ref={headerRef}></Header>

@@ -38,3 +38,21 @@ When you change what the /api/site-info endpoint returns, you will need to updat
 ```zsh
 curl http://localhost:8000/api/site-info/ > frontend/data/siteInfo.json
 ```
+
+# Clean Slate Django
+To clear the database and start anew, there are a number of steps to follow
+
+Delete migrations:
+```zsh
+mv site_data/migrations/__init__.py . && rm -r site_data/migrations && mkdir site_data/migrations && mv __init__.py site_data/migrations/__init__.py
+```
+
+Drop database:
+```zsh
+psql -U <username> -d eas
+```
+```sql
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+GRANT ALL PRIVILEGES ON SCHEMA public TO <user>;
+```

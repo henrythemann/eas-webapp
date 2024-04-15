@@ -2,6 +2,7 @@
 *.pyc
 __pycache__/*
 package-lock.json
+backend/collected_static
 
 # dependencies
 frontend/node_modules
