@@ -1,0 +1,74 @@
+.homeHeroSection {
+    position: relative;
+    background-size: cover;
+    height: 50rem;
+}
+.homeHeroSection h3 {
+    font-size: 4.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+}
+.homeHeroSection h6 {
+    font-size: 1.875rem;
+    margin: 0;
+}
+.homeHeroSection p {
+    font-size: 1.25rem;
+}
+.homeHeroSection .heroTextContainer {
+    top: 42%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: var(--page-color);
+    left: 50%;
+}
+.homeHeroSection::before {
+    content: "";
+    background: rgba(0, 0, 0, .2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+.homeHeroSection:hover .leftArrow, .homeHeroSection:hover .rightArrow {
+    opacity: 1;
+}
+.heroButton {
+    background-color: var(--accent-color);
+    color: var(--page-color);
+    padding: 1rem 2.03rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+.heroButton:hover {
+    background-color: var(--accent-dark);
+}
+
+.leftArrow, .rightArrow {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+    background-color: var(--page-color);
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+.leftArrow {
+    left: 0;
+}
+.rightArrow {
+    right: 0;
+}
+.leftArrow:hover, .rightArrow:hover {
+    background-color: var(--accent-color);
+    color: var(--page-color);
+    cursor: pointer;
+}

@@ -22,6 +22,7 @@ def home_page(request):
         'hero_sections': [
             {
                 'bkgd_img': section.bkgd_img,
+                'heading': section.heading,
                 'title': section.title,
                 'subtitle': section.subtitle,
                 'btn_text': section.btn_text,
