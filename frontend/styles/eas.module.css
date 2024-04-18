@@ -139,6 +139,13 @@
         max-width: 50%;
     }
 }
+@media (min-width: 576px) {
+    .colSm6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+}
 .row {
     display: -ms-flexbox;
     display: flex;
@@ -146,6 +153,11 @@
     flex-wrap: wrap;
     margin-right: -0.9375rem;
     margin-left: -0.9375rem;
+}
+
+.justifyContentCenter {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
 }
 
 /* stuff from fontawesome */
@@ -186,4 +198,16 @@
 }
 .faInstagram:before {
     content: "\f16d";
+}
+.faHandsHelping:before {
+    content: "\f4c4";
+}
+.faThumbsUp:before {
+    content: "\f164";
+}
+.faWrench:before {
+    content: "\f0ad";
+}
+.faUsers:before {
+    content: "\f0c0";
 }

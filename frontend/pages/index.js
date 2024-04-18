@@ -21,6 +21,9 @@ export default function Home({ data }) {
   const onHeroSwipeRight = () => {
     setHeroSectionIndex(heroSectionIndex === data.hero_sections.length - 1 ? 0 : heroSectionIndex + 1);
   }
+  const kebabToCamelCase = (str) => {
+    return str.replace(/-./g, (match) => match[1].toUpperCase());
+  }
 
   return (
     <div>
@@ -39,6 +42,32 @@ export default function Home({ data }) {
         </div>
         <div onClick={onHeroSwipeLeft} className={homePageStyles.leftArrow}>&lt;</div>
         <div onClick={onHeroSwipeRight} className={homePageStyles.rightArrow}>&gt;</div>
+      </section>
+
+      <section>
+        <div className={[styles.container, homePageStyles.expertArea].join(' ')}>
+          <div className="expert_inner">
+            <div className={[styles.row, styles.justifyContentCenter].join(' ')}>
+              {data.expert_sections.map((item, index) => {
+                return (
+                  <div key={index} className={[styles.colLg4, styles.colSm6].join(' ')}>
+                    <div className={homePageStyles.expertItem}>
+                      <i aria-hidden="true" className={[styles.fa, styles[kebabToCamelCase('fa-' + item.icon)]].join(' ')}></i>
+                      <h4>{item.title}</h4>
+                      <p>{item.caption}</p>
+                      <a className="main_btn red" href={item.link}>
+                        <i className="lnr lnr-arrow-right"></i>
+                      </a>
+                      <div className="shadow_icon">
+                        <i aria-hidden="true" className={[styles.fa, item.icon].join(' ')}></i>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

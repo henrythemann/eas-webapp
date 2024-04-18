@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection
+from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection
 
 def manufacturer_page_detail(request, url_slug):
     page = ManufacturerPage.objects.filter(page_title__iexact=url_slug.replace('-',' ')).first()
@@ -17,6 +17,7 @@ def manufacturer_page_detail(request, url_slug):
 def home_page(request):
     home_page = HomePage.objects.first()
     hero_sections = HomeHeroSection.objects.filter(home_page=home_page)
+    expert_sections = HomeExpertSection.objects.filter(home_page=home_page)
     return JsonResponse({
         'page_title': home_page.page_title,
         'hero_sections': [
@@ -28,7 +29,14 @@ def home_page(request):
                 'btn_text': section.btn_text,
                 'btn_link': section.btn_link
             } for section in hero_sections
-        ]
+        ],
+        'expert_sections': [
+            {
+                'title': section.title,
+                'caption': section.caption,
+                'icon': section.icon
+            } for section in expert_sections
+        ],
     })
 
 def site_info(request):

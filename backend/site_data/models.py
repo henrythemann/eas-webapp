@@ -43,8 +43,18 @@ class HomeHeroSectionInline(admin.TabularInline):
     model = HomeHeroSection
     extra = 1
 
+class HomeExpertSection(models.Model):
+    home_page = models.ForeignKey(HomePage, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    caption = models.CharField(max_length=200)
+    icon = models.CharField(max_length=50)
+
+class HomeExpertSectionInline(admin.TabularInline):
+    model = HomeExpertSection
+    extra = 1
+
 class HomePageAdmin(CustomAdmin):
-    inlines = [HomeHeroSectionInline]
+    inlines = [HomeHeroSectionInline, HomeExpertSectionInline]
     def has_add_permission(self, request):
         # If there's already an instance, do not allow adding new ones
         return not HomePage.objects.exists()

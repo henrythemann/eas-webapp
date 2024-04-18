@@ -72,3 +72,18 @@
     color: var(--page-color);
     cursor: pointer;
 }
+
+.expertArea {
+    background: var(--page-color);
+    margin-top: -75px;
+    position: relative;
+}
+.expertArea h4 {
+    color: var(--font-color-light);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.expertArea i:before {
+    font-size: 3.75rem;
+    color: var(--accent-color);
+}
