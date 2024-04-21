@@ -2,9 +2,10 @@ import styles from '/styles/eas.module.css';
 import { useEffect } from 'react';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
+import { pageTitleToUrl } from '/utils/urlUtils';
 
 export async function getStaticPaths() {
-    let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: x.title.toLowerCase().replace(' ','-') } }));
+    let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: pageTitleToUrl(x.title) } }));
 
     return {
         paths: pathsArray,
@@ -15,28 +16,28 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     // Extract the manufacturer slug from the URL
     let { manufacturer } = context.params;
-    manufacturer = manufacturer.replace(/ /g, '-').toLowerCase();
 
     // Fetch data from Django API
-    const response = await fetch(`http://localhost:8000/api/manufacturers/${manufacturer}`);
+    const response = await fetch(`http://localhost:8000/api/manufacturers/${manufacturer}/`);
     const data = await response.json();
-  
     // Pass data to the page via props
     return { props: { data } };
 }
 
 export default function Manufacturer({ data, setTitle }) {
     let servicesHalves = [];
-    if (data.services) {
-        const servicesMidpoint = Math.ceil(data.services.length / 2);
-        servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
-    }
+    useEffect(() => {
+        if (data.services) {
+            const servicesMidpoint = Math.ceil(data.services.length / 2);
+            servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
+        }
+    }, [data]);
 
     useEffect(() => {
         if (data.page_title) {
             setTitle(`Independent ${data.page_title} Repair Shop Los Angeles | European Auto Service`);
         }
-    }, [data.html_title]);
+    }, [data.page_title]);
 
     return (<>
         <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
@@ -49,7 +50,7 @@ export default function Manufacturer({ data, setTitle }) {
             <div className={styles.container}>
                 <h2 className={styles.articleTitle}><span>{data.page_title}</span> Repair Specialists</h2>
                 <h3 className={styles.articleSubtitle}>{data.article_subtitle}</h3>
-                <p dangerouslySetInnerHTML={{__html: data.content}}></p>
+                <p dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></p>
             </div>
         </section>
         {data.services && (

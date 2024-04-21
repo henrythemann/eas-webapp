@@ -52,7 +52,7 @@ export default function TopMenu({ headerRef }) {
     };
         
     // Update the top value when the menu is opened or closed
-    useLayoutEffect(() => {
+    useEffect(() => {
         updateMenuHeight();
         updateTopPosition();
     }, [menuOpen]);
@@ -78,7 +78,7 @@ export default function TopMenu({ headerRef }) {
         handleResizeRef.current();
     };
     // Update everything when the user scrolls
-    useLayoutEffect(() => {    
+    useEffect(() => {    
         const eventListener = () => handleScrollRef.current();
         // Add event listener for window resize
         window.addEventListener('scroll', eventListener);
@@ -94,7 +94,7 @@ export default function TopMenu({ headerRef }) {
     }, []);
 
     // make nav bar follow user when scrolling
-    useLayoutEffect(() => {    
+    useEffect(() => {    
         const eventListener = () => handleResizeRef.current();
         // Add event listener for window resize
         window.addEventListener('resize', eventListener);

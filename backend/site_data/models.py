@@ -62,6 +62,9 @@ class HomePageAdmin(CustomAdmin):
 class ManufacturerPage(TemplatePage):
     pass
 
+class ServicePage(TemplatePage):
+    pass
+
 class Service(models.Model):
     manufacturer_page = models.ForeignKey(ManufacturerPage, on_delete=models.CASCADE)
     service_name = models.CharField(max_length=200)
