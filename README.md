@@ -2,18 +2,30 @@
 The website for European Auto Service. Built using Django as the backend with React as the frontend.
 
 # Setup
-To run the Django server, you needs to have a DJANGER_KEY environment variable set. You can create it with the following code:
+To run the Django server, you need to install summernote (for HTML editor in admin page) and psycopg2 (postgres adapter):
 ```zsh
-python3 manage.py shell
+python3 -m pip install django-summernote
+python3 -m pip install psycopg2 
 ```
-In the shell:
-```python
-from django.core.management.utils import get_random_secret_key  
-get_random_secret_key()
+
+You will also need to create a file called .my_pgpass in the backend folder with this format:
 ```
-Copy that key into this command:
+localhost:5432:mydatabase:myuser:mypassword
+```
+
+You will also need to create a config file for postgres at `~/.pg_service.conf` that looks like this:
+```
+[my_service]
+host=localhost
+port=5432
+dbname=mydatabase
+user=myuser
+```
+
+You also need to have a DJANGER_KEY environment variable set. You can set it temporarily with the following code:
+
 ```zsh
-export DJANGER_KEY='copied_key'
+export DJANGER_KEY=$(python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')
 ```
 
 # Running
