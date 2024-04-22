@@ -93,6 +93,22 @@
     margin-left: auto
 }
 
+.articleContainer {
+    display: flex;
+    align-items: flex-start;
+}
+.articleContainer img {
+    padding: 1.25rem 0 0 1.25rem;
+}
+@media (max-width: 768px) {
+    .articleContainer {
+        flex-direction: column-reverse;
+    }
+    .articleContainer img {
+        padding: 0;
+    }
+}
+
 @media (min-width: 576px) {
     .container {
         max-width:540px

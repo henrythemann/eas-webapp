@@ -63,7 +63,7 @@ class ManufacturerPage(TemplatePage):
     pass
 
 class ServicePage(TemplatePage):
-    pass
+    article_img = models.CharField(max_length=200)
 
 class Service(models.Model):
     manufacturer_page = models.ForeignKey(ManufacturerPage, on_delete=models.CASCADE)

@@ -26,6 +26,7 @@ def service_page_detail(request, url_slug):
             'content': page.content,
             'hero_bkgd_img': page.hero_bkgd_img,
             'article_subtitle': page.article_subtitle,
+            'article_img': page.article_img,
         })
     else:
         return JsonResponse({'error': 'Page not found'}, status=404)
