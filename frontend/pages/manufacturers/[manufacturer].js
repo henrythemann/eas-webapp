@@ -50,7 +50,7 @@ export default function Manufacturer({ data, setTitle }) {
             <div className={styles.container}>
                 <h2 className={styles.articleTitle}><span>{data.page_title}</span> Repair Specialists</h2>
                 <h3 className={styles.articleSubtitle}>{data.article_subtitle}</h3>
-                <p dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></p>
+                <div dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></div>
             </div>
         </section>
         {data.services && (
