@@ -25,6 +25,8 @@ frontend/data/siteInfo.json
 frontend/public/webfonts/
 *.webp
 eas logo/*
+backend/site_data/migrations/
+!backend/site_data/migrations/__init__.py
 
 # debug
 npm-debug.log*

@@ -82,14 +82,14 @@ def site_info(request):
                 'link': '/about'
             },
             {
-                'group': 'manufacturers',
-                'title': 'Vehicles We Service',
-                'pages': page_dicts
-            },
-            {
                 'group': 'services',
                 'title': 'Services',
                 'pages': service_dicts,
+            },
+            {
+                'group': 'manufacturers',
+                'title': 'Vehicles We Service',
+                'pages': page_dicts
             },
             {
                 'title': 'Reviews',

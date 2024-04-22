@@ -6,7 +6,6 @@ import { pageTitleToUrl } from '/utils/urlUtils';
 
 export async function getStaticPaths() {
     let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'services').pages.map(x => ({ params: { service: pageTitleToUrl(x.title) } }));
-    console.log(pathsArray);
     return {
         paths: pathsArray,
         fallback: false

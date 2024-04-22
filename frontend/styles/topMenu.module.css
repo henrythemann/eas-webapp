@@ -35,7 +35,7 @@
     border: 0.0625rem solid transparent;
     border-radius: 0.25rem;
 }
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
     ul.navigationLinks {
         display: none;
         overflow: hidden;
@@ -98,7 +98,7 @@
         transition: transform .3s .3s, -webkit-transform .3s .3s, bottom .3s 0s;
     }
 }
-@media (min-width: 991px) {
+@media (min-width: 1200px) {
     .dropDownMenu {
         display: none;
     }
