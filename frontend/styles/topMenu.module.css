@@ -213,6 +213,10 @@
     padding: .7rem;
     background: var(--page-color);
 }
+.navigationLinks .linkMenu.wideLinkMenu {
+    left: -50%;
+    right: -50%;
+}
 .navigationLinks li .linkWrapper {
     position: relative;
     height: 100%;

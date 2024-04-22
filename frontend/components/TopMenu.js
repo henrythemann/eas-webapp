@@ -191,7 +191,7 @@ export default function TopMenu({ headerRef }) {
                             
                             </div>
                             {(page['group'] !== undefined) && (
-                                <div className={topMenuStyles.linkMenu}>
+                                <div className={[topMenuStyles.linkMenu, (page.title.length < 15 ? topMenuStyles.wideLinkMenu : undefined)].join(' ')}>
                                 {page['pages'].map((subPage, subIndex) => (
                                         <Link key={subIndex} href={subPage.link} className={topMenuStyles.subNavigationLink}>{subPage.title}</Link>
                                 ))}
