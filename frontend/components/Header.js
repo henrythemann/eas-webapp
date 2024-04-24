@@ -11,7 +11,7 @@ const Header = forwardRef((props, ref) => {
                     <div className={headerStyles.contactInfoContainer}>
                         <div className={headerStyles.addressAndHoursContainer}>
                             <div>
-                                <span aria-hidden="true" className={[styles.fas, styles.faBusinessHours, headerStyles.icon].join(' ')}></span><span className={headerStyles.businessHours}>Monday-Saturday 8:30AM-5:30PM</span>
+                                <span aria-hidden="true" className={[styles.fas, styles.faBusinessHours, headerStyles.icon].join(' ')}></span><span className={headerStyles.businessHours}>{siteInfo.hours}</span>
                             </div>
                             <div>
                                 <span aria-hidden="true" className={[styles.fas, styles.faMapMarkerAlt, headerStyles.icon].join(' ')}></span><a href="https://maps.app.goo.gl/efyAT2CnbnyzgBCV9" target='_blank' rel='noopener noreferrer'>{siteInfo.address}</a>

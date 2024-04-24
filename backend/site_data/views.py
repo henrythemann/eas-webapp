@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage
+from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage
 
 def get_object_from_url_slug(model, url_slug):
     return model.objects.filter(page_title__iexact=url_slug.replace('-',' ').replace('%26','&')).first()
@@ -19,7 +19,6 @@ def manufacturer_page_detail(request, url_slug):
 
 def service_page_detail(request, url_slug):
     page = get_object_from_url_slug(ServicePage, url_slug)
-    print(page)
     if page:
         return JsonResponse({
             'page_title': page.page_title,
@@ -30,6 +29,13 @@ def service_page_detail(request, url_slug):
         })
     else:
         return JsonResponse({'error': 'Page not found'}, status=404)
+    
+def contact_page(request):
+    contact_page = ContactPage.objects.first()
+    return JsonResponse({
+        'page_title': contact_page.page_title,
+        'hero_bkgd_img': contact_page.hero_bkgd_img,
+    })
 
 def home_page(request):
     home_page = HomePage.objects.first()
@@ -67,6 +73,7 @@ def site_info(request):
     return JsonResponse({
         'site_description': info.site_description,
         'footer_description': info.footer_description,
+        'hours': info.hours,
         'site_logo': info.site_logo,
         'address': info.address,
         'phone': info.phone,

@@ -30,6 +30,9 @@ class HomePage(Page):
     class Meta:
         verbose_name_plural = "Home Page"
 
+class ContactPage(Page):
+    hero_bkgd_img = models.CharField(max_length=200, blank=True)
+
 class HomeHeroSection(models.Model):
     home_page = models.ForeignKey(HomePage, on_delete=models.CASCADE)
     bkgd_img = models.CharField(max_length=200)
@@ -77,6 +80,7 @@ class ManufacturerPageAdmin(CustomAdmin):
 class SiteInfo(models.Model):
     site_description = models.TextField(max_length=200)
     footer_description = models.TextField(max_length=200)
+    hours = models.CharField(max_length=200)
     site_logo = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=200)
