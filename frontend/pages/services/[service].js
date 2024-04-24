@@ -1,6 +1,7 @@
 import styles from '/styles/eas.module.css';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
+import HeroSection from '/components/HeroSection';
 import { pageTitleToUrl } from '/utils/urlUtils';
 import Image from 'next/image';
 
@@ -25,14 +26,14 @@ export async function getStaticProps(context) {
 }
 
 export default function Service({ data, setTitle }) {
-    console.log(data.article_img)
+    useEffect(() => {
+        if (data.page_title) {
+            setTitle(`European Auto Service offers ${data.page_title.toLowerCase()} services in Los Angeles. Our professionals have all the right skills and tools to deliver the best repairs.`);
+        }
+    }, [data.page_title]);
+
     return (<>
-        <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
-            <div className={styles.container}>
-                <h1>{data.page_title}</h1>
-                <div className={styles.subheading}>European Auto Service | Reseda</div>
-            </div>
-        </section>
+        <HeroSection bkgd_img={data.hero_bkgd_img} page_title={data.page_title}></HeroSection>
         <section className={styles.mainArticleSection}>
             <div className={[styles.container, styles.articleContainer].join(' ')}>
                 <div>

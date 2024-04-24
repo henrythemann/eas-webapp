@@ -2,6 +2,7 @@ import styles from '/styles/eas.module.css';
 import { useEffect } from 'react';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
+import HeroSection from '/components/HeroSection';
 import { pageTitleToUrl } from '/utils/urlUtils';
 
 export async function getStaticPaths() {
@@ -40,12 +41,7 @@ export default function Manufacturer({ data, setTitle }) {
     }, [data.page_title]);
 
     return (<>
-        <section className={styles.heroSection} style={{backgroundImage: `url(${data.hero_bkgd_img})`}}>
-            <div className={styles.container}>
-                <h1>{data.page_title}</h1>
-                <div className={styles.subheading}>European Auto Service | Reseda</div>
-            </div>
-        </section>
+        <HeroSection bkgd_img={data.hero_bkgd_img} page_title={data.page_title}></HeroSection>
         <section className={styles.mainArticleSection}>
             <div className={styles.container}>
                 <h2 className={styles.articleTitle}><span>{data.page_title}</span> Repair Specialists</h2>
