@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
 import HeroSection from '/components/HeroSection';
-import { pageTitleToUrl } from '/utils/urlUtils';
+import { pageTitleToUrl } from '/utils/textUtils';
 
 export async function getStaticPaths() {
     let pathsArray = siteInfo.pages.find(x => x.group && x.group == 'manufacturers').pages.map(x => ({ params: { manufacturer: pageTitleToUrl(x.title) } }));

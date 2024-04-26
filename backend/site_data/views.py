@@ -57,7 +57,9 @@ def home_page(request):
             {
                 'title': section.title,
                 'caption': section.caption,
-                'icon': section.icon
+                'icon': section.icon,
+                'btn_text': section.btn_text,
+                'btn_link': section.btn_link
             } for section in expert_sections
         ],
     })

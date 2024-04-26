@@ -2,6 +2,7 @@ import styles from '/styles/eas.module.css';
 import footerStyles from '/styles/footer.module.css';
 import Link from 'next/link';
 import siteInfo from '/data/siteInfo';
+import { formatPhoneNumber } from '/utils/textUtils';
 
 export default function Footer() {
     return (
@@ -15,7 +16,7 @@ export default function Footer() {
                         <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faEnvelope, footerStyles.icon].join(' ')}></span><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
                     </div>
                     <div className={footerStyles.contactInfoItem}>
-                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faPhoneAlt, footerStyles.icon].join(' ')}></span><a href={`tel:${siteInfo.phone}`}>{`${siteInfo.phone.substr(0,3)}.${siteInfo.phone.substr(3,3)}.${siteInfo.phone.substr(6)}`}</a>
+                        <span aria-hidden="true" className={[styles.fas, footerStyles.fas, styles.faPhoneAlt, footerStyles.icon].join(' ')}></span><a href={`tel:${siteInfo.phone}`}>{formatPhoneNumber(siteInfo.phone)}</a>
                     </div>
                 </div>
                 <div>

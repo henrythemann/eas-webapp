@@ -141,11 +141,23 @@
     padding-right: 0.9375rem;
     padding-left: 0.9375rem;
 }
+@media (min-width: 576px) {
+    .colSm6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%
+    }
+}
 @media (min-width: 992px) {
     .colLg6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
+    }
+    .colLg4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
     }
 }
 @media (min-width: 768px) {
@@ -153,13 +165,6 @@
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
         max-width: 50%;
-    }
-}
-@media (min-width: 576px) {
-    .colSm6 {
-        -ms-flex: 0 0 50%;
-        flex: 0 0 50%;
-        max-width: 50%
     }
 }
 .row {
@@ -200,6 +205,12 @@
 .faEnvelope:before {
     content: "\f0e0";
 }
+.faEnvelopeOpenText:before {
+    content: "\f658";
+}
+.faPhone:before {
+    content: "\f095";
+}
 .faPhoneAlt:before {
     content: "\f879";
 }
@@ -224,6 +235,21 @@
 .faWrench:before {
     content: "\f0ad";
 }
+.faMapPin:before {
+    content: "\f276";
+}
 .faUsers:before {
     content: "\f0c0";
+}
+.faRightArrow:before {
+    content: "\f061";
+}
+.faLeftArrow:before {
+    content: "\f060";
+}
+.faAngleRight:before {
+    content: "\f105";
+}
+.faAngleLeft:before {
+    content: "\f104";
 }

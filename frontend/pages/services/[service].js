@@ -2,7 +2,7 @@ import styles from '/styles/eas.module.css';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
 import HeroSection from '/components/HeroSection';
-import { pageTitleToUrl } from '/utils/urlUtils';
+import { pageTitleToUrl } from '/utils/textUtils';
 import Image from 'next/image';
 
 export async function getStaticPaths() {

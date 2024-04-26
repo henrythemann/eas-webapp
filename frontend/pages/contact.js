@@ -1,6 +1,10 @@
 import HeroSection from '/components/HeroSection';
+import ManufacturerLogos from '/components/ManufacturerLogos';
+import MapSection from '/components/MapSection';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
+import contactStyles from '/styles/contact.module.css';
+import { formatPhoneNumber } from '/utils/textUtils';
 
 export async function getStaticProps() {
     // Fetch data from Django API
@@ -13,15 +17,34 @@ export async function getStaticProps() {
 
 export default function Contact({data}) {
     return (<>
-        <HeroSection bkgd_img={data.hero_bkgd_img} page_title={data.page_title}></HeroSection>
+        <HeroSection bkgd_img={data.hero_bkgd_img} page_title={"Contact Us"}></HeroSection>
         <section>
-            <div className={styles.dFlex}>
-                <div>Location: {siteInfo.address}</div>
-                <div>Phone Number: {siteInfo.phone}</div>
-                <div>Email Us: {siteInfo.email}</div>
-                <div>Hours of Operation: {siteInfo.hours}</div>
+            <div className={[styles.container, contactStyles.contactContainer].join(' ')}>
+                <div className={[styles.row, contactStyles.contactInfoInner].join(' ')}>
+                <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
+                        <i className={[styles.fa, styles.faMapPin].join(' ')}></i>
+                        <h4>Location</h4>
+                        <div className={contactStyles.contactInfoDetail} dangerouslySetInnerHTML={{__html: siteInfo.address.replace(', ','<br></br>')}}></div>
+                    </div>
+                    <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
+                        <i className={[styles.fa, styles.faPhoneAlt].join(' ')}></i>
+                        <h4>Phone Number</h4>
+                        <div className={contactStyles.contactInfoDetail}><a href={`tel:${siteInfo.phone}`}>{formatPhoneNumber(siteInfo.phone)}</a></div>
+                    </div>
+                    <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
+                        <i className={[styles.fa, styles.faEnvelope].join(' ')}></i>
+                        <h4>Email Us</h4>
+                        <div className={contactStyles.contactInfoDetail}><a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a></div>
+                    </div>
+                    <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
+                        <i className={[styles.fa, styles.faBusinessHours].join(' ')}></i>
+                        <h4>Hours of Operation</h4>
+                        <div className={contactStyles.contactInfoDetail} dangerouslySetInnerHTML={{__html: siteInfo.hours}}></div>
+                    </div>
+                </div>
             </div>
         </section>
-        <iframe loading="lazy" src="https://maps.google.com/maps?q=European%20Auto%20Service%2C%20Reseda%20CA%2C%20United%20States&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" title="European Auto Service, Reseda CA, United States" aria-label="European Auto Service, Reseda CA, United States"></iframe>
+        <MapSection></MapSection>
+        <ManufacturerLogos></ManufacturerLogos>
     </>)
 }

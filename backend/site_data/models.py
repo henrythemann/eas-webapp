@@ -38,7 +38,7 @@ class HomeHeroSection(models.Model):
     bkgd_img = models.CharField(max_length=200)
     heading = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    subtitle = models.CharField(max_length=200)
+    subtitle = models.TextField(max_length=200)
     btn_text = models.CharField(max_length=200)
     btn_link = models.CharField(max_length=200)
 
@@ -49,8 +49,10 @@ class HomeHeroSectionInline(admin.TabularInline):
 class HomeExpertSection(models.Model):
     home_page = models.ForeignKey(HomePage, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    caption = models.CharField(max_length=200)
+    caption = models.TextField(max_length=200)
     icon = models.CharField(max_length=50)
+    btn_text = models.CharField(max_length=50)
+    btn_link = models.CharField(max_length=200)
 
 class HomeExpertSectionInline(admin.TabularInline):
     model = HomeExpertSection
