@@ -1,5 +1,5 @@
 import styles from '/styles/eas.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
 import HeroSection from '/components/HeroSection';
@@ -26,11 +26,11 @@ export async function getStaticProps(context) {
 }
 
 export default function Manufacturer({ data, setTitle }) {
-    let servicesHalves = [];
+    const [servicesHalves, setServicesHalves] = useState([]);
     useEffect(() => {
         if (data.services) {
             const servicesMidpoint = Math.ceil(data.services.length / 2);
-            servicesHalves = [data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)];
+            setServicesHalves([data.services.slice(0, servicesMidpoint), data.services.slice(servicesMidpoint)]);
         }
     }, [data]);
 
