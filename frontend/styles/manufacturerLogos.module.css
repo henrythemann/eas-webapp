@@ -1,14 +1,30 @@
 .manufacturerLogosContainer {
+    padding: 2rem;
+
+}
+.manufacturerLogosContainer,
+.manufacturerLogosContainer .halfContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 0rem 3rem;
-    padding: 2rem;
+    gap: 0 2.5%;
+}
+.manufacturerLogosContainer .halfContainer {
+    gap: 0 5%;
 }
 
 @media (max-width: 826px) {
     .manufacturerLogosContainer {
         gap: 0rem 5vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .manufacturerLogosContainer {
+        flex-direction: column;
+    }
+    .manufacturerLogosContainer .halfContainer {
+        flex: 0 0 50%;
     }
 }

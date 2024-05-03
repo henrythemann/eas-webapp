@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styles from '/styles/eas.module.css';
 import siteInfo from '/data/siteInfo';
 import ManufacturerLogos from '/components/ManufacturerLogos';
