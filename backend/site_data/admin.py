@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ManufacturerPage, ManufacturerPageAdmin, SiteInfo, HomePage, HomePageAdmin, ServicePage, ContactPage
+from .models import ManufacturerPage, ManufacturerPageAdmin, SiteInfo, HomePage, HomePageAdmin, ServicePage, ContactPage, AboutPage
 
 admin.site.register(ManufacturerPage, ManufacturerPageAdmin) 
 admin.site.register(ServicePage)
@@ -17,3 +17,8 @@ class ContactPageAdmin(admin.ModelAdmin):
         return not ContactPage.objects.exists()
 
 admin.site.register(HomePage, HomePageAdmin)
+@admin.register(AboutPage)
+class AboutPageAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        # If there's already an instance, do not allow adding new ones
+        return not AboutPage.objects.exists()

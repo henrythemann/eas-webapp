@@ -32,6 +32,12 @@ class HomePage(Page):
 
 class ContactPage(Page):
     hero_bkgd_img = models.CharField(max_length=200, blank=True)
+    class Meta:
+        verbose_name_plural = "Contact Page"
+
+class AboutPage(TemplatePage):
+    class Meta:
+        verbose_name_plural = "About Page"
 
 class HomeHeroSection(models.Model):
     home_page = models.ForeignKey(HomePage, on_delete=models.CASCADE)

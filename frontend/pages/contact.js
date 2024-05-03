@@ -24,7 +24,7 @@ export default function Contact({data}) {
                 <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
                         <i className={[styles.fa, styles.faMapPin].join(' ')}></i>
                         <h4>Location</h4>
-                        <div className={contactStyles.contactInfoDetail} dangerouslySetInnerHTML={{__html: siteInfo.address.replace(', ','<br></br>')}}></div>
+                        <div className={contactStyles.contactInfoDetail} dangerouslySetInnerHTML={{__html: siteInfo.address.replace(', ','<br/>')}}></div>
                     </div>
                     <div className={[contactStyles.contactInfoItem, styles.colLg4, styles.colSm6].join(' ')}>
                         <i className={[styles.fa, styles.faPhoneAlt].join(' ')}></i>

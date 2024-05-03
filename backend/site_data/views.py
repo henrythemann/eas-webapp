@@ -1,8 +1,11 @@
 from django.http import JsonResponse
-from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage
+from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage, AboutPage
 
 def get_object_from_url_slug(model, url_slug):
-    return model.objects.filter(page_title__iexact=url_slug.replace('-',' ').replace('%26','&')).first()
+    m = model.objects.filter(page_title__iexact=url_slug.replace('-',' ').replace('%26','&')).first()
+    if m is not None:
+        return m
+    return model.objects.filter(page_title__iexact=url_slug.replace('%26','&')).first()
 
 def manufacturer_page_detail(request, url_slug):
     page = get_object_from_url_slug(ManufacturerPage, url_slug)
@@ -110,4 +113,12 @@ def site_info(request):
                 'link': '/contact'
             }
         ]
+    })
+
+def about_page(request):
+    about_page = AboutPage.objects.first()
+    return JsonResponse({
+        'page_title': about_page.page_title,
+        'content': about_page.content,
+        'hero_bkgd_img': about_page.hero_bkgd_img,
     })
