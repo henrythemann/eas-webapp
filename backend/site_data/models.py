@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib import admin
-from django_summernote.fields import SummernoteTextField
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Page(models.Model):
     page_title = models.CharField(max_length=50, unique=True)
@@ -21,7 +21,7 @@ class CustomAdmin(admin.ModelAdmin):
 class TemplatePage(Page):
     hero_bkgd_img = models.CharField(max_length=200, blank=True)
     article_subtitle = models.CharField(max_length=200, blank=True)
-    content = SummernoteTextField()
+    content = CKEditor5Field('Text', config_name='extends')
     class Meta:
         abstract = True
 

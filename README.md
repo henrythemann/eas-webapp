@@ -2,9 +2,9 @@
 The website for European Auto Service. Built using Django as the backend with React as the frontend.
 
 # Setup
-To run the Django server, you need to install summernote (for HTML editor in admin page) and psycopg2 (postgres adapter):
+To run the Django server, you need to install CKEditor (for HTML editor in admin page) and psycopg2 (postgres adapter):
 ```zsh
-python3 -m pip install django-summernote
+python3 -m pip install django-ckeditor-5
 python3 -m pip install psycopg2 
 ```
 
