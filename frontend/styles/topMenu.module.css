@@ -212,6 +212,7 @@
     right: 0;
     padding: .7rem;
     background: var(--page-color);
+    box-shadow: 0 0 10px 10px #00000012;
 }
 .navigationLinks .linkMenu.wideLinkMenu {
     left: -50%;
