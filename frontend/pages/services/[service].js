@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import styles from '/styles/eas.module.css';
 import siteInfo from '/data/siteInfo';
-import ManufacturerLogos from '/components/ManufacturerLogos';
 import HeroSection from '/components/HeroSection';
 import { pageTitleToUrl } from '/utils/textUtils';
 import Image from 'next/image';
@@ -45,6 +44,5 @@ export default function Service({ data, setTitle }) {
                 <Image src={data.article_img} alt={data.page_title} width={600} height={600}></Image>
             </div>
         </section>
-        <ManufacturerLogos></ManufacturerLogos>
     </>)
 }

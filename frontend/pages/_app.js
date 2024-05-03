@@ -6,6 +6,7 @@ import useScrollRestoration from "/hooks/useScrollRestoration";
 import Footer from '/components/Footer';
 import Header from '/components/Header';
 import TopMenu from '/components/TopMenu';
+import ManufacturerLogos from '/components/ManufacturerLogos';
 
 function EASApp({ Component, pageProps, router }) {
     const headerRef = React.createRef();
@@ -24,6 +25,7 @@ function EASApp({ Component, pageProps, router }) {
         <Header ref={headerRef}></Header>
         <TopMenu headerRef={headerRef}></TopMenu>
         <Component {...pageProps} setTitle={setHtmlTitle}/>
+        <ManufacturerLogos></ManufacturerLogos>
         <Footer></Footer>
     </>);
 }

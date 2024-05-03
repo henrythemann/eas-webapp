@@ -1,5 +1,4 @@
 import HeroSection from '/components/HeroSection';
-import ManufacturerLogos from '/components/ManufacturerLogos';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
 
@@ -22,6 +21,5 @@ export default function About({data}) {
                 <div dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></div>
             </div>
         </section>
-        <ManufacturerLogos></ManufacturerLogos>
     </>)
 }

@@ -1,7 +1,6 @@
 import styles from '/styles/eas.module.css';
 import { useEffect, useState } from 'react';
 import siteInfo from '/data/siteInfo';
-import ManufacturerLogos from '/components/ManufacturerLogos';
 import HeroSection from '/components/HeroSection';
 import { pageTitleToUrl } from '/utils/textUtils';
 
@@ -73,7 +72,6 @@ export default function Manufacturer({ data, setTitle }) {
             </div>
         </section>
         )}
-        <ManufacturerLogos></ManufacturerLogos>
         </>
   );
 }

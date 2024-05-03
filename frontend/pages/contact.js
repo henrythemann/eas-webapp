@@ -1,5 +1,4 @@
 import HeroSection from '/components/HeroSection';
-import ManufacturerLogos from '/components/ManufacturerLogos';
 import MapSection from '/components/MapSection';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
@@ -45,6 +44,5 @@ export default function Contact({data}) {
             </div>
         </section>
         <MapSection></MapSection>
-        <ManufacturerLogos></ManufacturerLogos>
     </>)
 }
