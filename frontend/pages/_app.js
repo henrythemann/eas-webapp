@@ -7,6 +7,8 @@ import Footer from '/components/Footer';
 import Header from '/components/Header';
 import TopMenu from '/components/TopMenu';
 import ManufacturerLogos from '/components/ManufacturerLogos';
+import MapSection from '/components/MapSection';
+import ReviewSection from '/components/ReviewSection';
 
 function EASApp({ Component, pageProps, router }) {
     const headerRef = React.createRef();
@@ -25,6 +27,8 @@ function EASApp({ Component, pageProps, router }) {
         <Header ref={headerRef}></Header>
         <TopMenu headerRef={headerRef}></TopMenu>
         <Component {...pageProps} setTitle={setHtmlTitle}/>
+        <ReviewSection></ReviewSection>
+        <MapSection></MapSection>
         <ManufacturerLogos></ManufacturerLogos>
         <Footer></Footer>
     </>);

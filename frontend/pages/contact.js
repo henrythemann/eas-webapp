@@ -1,5 +1,4 @@
 import HeroSection from '/components/HeroSection';
-import MapSection from '/components/MapSection';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
 import contactStyles from '/styles/contact.module.css';
@@ -43,6 +42,5 @@ export default function Contact({data}) {
                 </div>
             </div>
         </section>
-        <MapSection></MapSection>
     </>)
 }

@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage, AboutPage
+from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage, AboutPage, YelpReview
 
 def get_object_from_url_slug(model, url_slug):
     m = model.objects.filter(page_title__iexact=url_slug.replace('-',' ').replace('%26','&')).first()
@@ -73,7 +73,9 @@ def site_info(request):
     page_dicts = [{'title': page, 'link': f"/manufacturers/{page.lower().replace(' ','-').replace('&','%26')}"} for page in manufacturer_pages]
 
     services = list(ServicePage.objects.all().values_list('page_title', flat=True))
-    service_dicts = [{'title': service, 'link': f"/services/{service.lower().replace(' ','-').replace('&','%26')}"} for service in services]
+    service_dicts = [{'title': service, 'link': f"/services/{service.lower().replace(' ','-').replace('&','%26')}"} for service in services]\
+    
+    yelp_reviews = [review['data_review_id'] for review in YelpReview.objects.all().values()]
 
     return JsonResponse({
         'site_description': info.site_description,
@@ -112,7 +114,8 @@ def site_info(request):
                 'title': 'Contact',
                 'link': '/contact'
             }
-        ]
+        ],
+        'yelp_reviews': yelp_reviews,
     })
 
 def about_page(request):

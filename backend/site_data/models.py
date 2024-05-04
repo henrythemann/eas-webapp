@@ -97,3 +97,8 @@ class SiteInfo(models.Model):
     instagram_link = models.CharField(max_length=200)
     class Meta:
         verbose_name_plural = "Site Info"
+
+class YelpReview(models.Model):
+    data_review_id = models.CharField(max_length=50)
+    def __str__(self):
+        return self.data_review_id

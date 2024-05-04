@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    // Extract the manufacturer slug from the URL
+    // Extract the service slug from the URL
     let { service } = context.params;
 
     // Fetch data from Django API
