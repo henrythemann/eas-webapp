@@ -5,12 +5,12 @@ import topMenuStyles from '/styles/topMenu.module.css';
 
 export default function ExpandableSubMenu ({ page, index, toggleParentMenu }) {
     const [isOpen, setIsOpen] = useState(false);
-    const contentHeight = useRef(0);
+    const [contentHeight, setContentHeight] = useState(0);
     const subMenuRef = useRef(null);
 
     useEffect(() => {
         if (subMenuRef.current) {
-            contentHeight.current = subMenuRef.current.scrollHeight;
+            setContentHeight(subMenuRef.current.scrollHeight);
         }
     }, [isOpen]);
     
@@ -21,7 +21,7 @@ export default function ExpandableSubMenu ({ page, index, toggleParentMenu }) {
     const subMenuAnimation = useSpring({
         config: { duration: 200 },
         to: {
-            maxHeight: isOpen ? contentHeight.current : 0,
+            maxHeight: isOpen ? contentHeight : 0,
         },
         from: { maxHeight: 0},
     });
