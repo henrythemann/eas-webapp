@@ -32,6 +32,7 @@ footer .creditCardSection .text {
 .footerFirstSection {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 1rem;
 }
 .footer > .footerFirstSection > div {
     flex-grow: 1;

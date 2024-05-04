@@ -33,6 +33,20 @@ export default function Footer() {
                         })}
                     </ul>
                 </div>
+                <div>
+                    <div><h3>Specialties</h3></div>
+                    <ul className={footerStyles.footerNavigation}>
+                        {siteInfo.pages.filter(page => page.group === "services")[0].pages.map((page, index) => {
+                            return (
+                                page['link'] && (
+                                    <li key={index}>
+                                        <Link href={page['link']}>{page.title}</Link>
+                                    </li>
+                                )
+                            );
+                        })}
+                    </ul>
+                </div>
                 <div className={footerStyles.socialMediaContainer}>
                     <div><h3>Follow Us</h3></div>
                     <ul>
