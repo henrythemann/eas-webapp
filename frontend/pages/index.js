@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '/styles/eas.module.css';
 import homePageStyles from '/styles/homePage.module.css';
 import { useState } from 'react';
+import { kebabToCamelCase } from '/utils/textUtils';
  
 export async function getStaticProps(context) {
   // Fetch data from Django API
