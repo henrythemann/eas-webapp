@@ -107,10 +107,6 @@ def site_info(request):
                 'pages': page_dicts
             },
             {
-                'title': 'Reviews',
-                'link': '/reviews'
-            },
-            {
                 'title': 'Contact',
                 'link': '/contact'
             }
