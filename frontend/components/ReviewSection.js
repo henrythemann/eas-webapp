@@ -42,10 +42,10 @@ export default function ReviewSection() {
                     key={activeReview}
                     timeout={500} // Match the CSS transition duration
                     classNames={{
-                        enter: reviewSectionStyles.reviewEnter,
-                        enterActive: reviewSectionStyles.reviewEnterActive,
-                        exit: reviewSectionStyles.reviewExit,
-                        exitActive: reviewSectionStyles.reviewExitActive
+                        enter: styles.fadeEnter,
+                        enterActive: styles.fadeEnterActive,
+                        exit: styles.fadeExit,
+                        exitActive: styles.fadeExitActive
                     }}>
                         <iframe src={`https://www.yelp.com/embed/review/${siteInfo.yelp_reviews[activeReview]}`} 
                             style={{width:'100%', height:'300px', border: 'none'}} 

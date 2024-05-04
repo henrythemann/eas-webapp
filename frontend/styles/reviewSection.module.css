@@ -29,18 +29,4 @@
     height: 300px;
 }
 
-.reviewEnter {
-    opacity: 0;
-    transition: opacity 500ms ease-in;
-}
-.reviewEnterActive {
-    opacity: 1;
-}
-.reviewExit {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-}
-.reviewExitActive {
-    opacity: 0;
-}
   
