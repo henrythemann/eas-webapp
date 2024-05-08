@@ -1,3 +1,18 @@
 input[type="text"] {
     width: 100% !important;
 }
+.ck.ck-content.ck-editor__editable,
+.ck.ck-toolbar,
+.ck.ck-reset.ck-dropdown__panel,
+.ck.ck-dropdown {
+    background-color: #000 !important;
+}
+.ck svg {
+    filter: brightness(4.5);
+}
+.ck-button__label {
+    color: rgb(238, 238, 238) !important;
+}
+.ck.ck-button.ck-on, a.ck.ck-button.ck-on {
+    background: #9aa0a7 !important;
+}
