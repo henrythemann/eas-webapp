@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage, AboutPage, YelpReview
+from .models import ManufacturerPage, SiteInfo, HomePage, HomeHeroSection, HomeExpertSection, ServicePage, ContactPage, AboutPage, YelpReview, GalleryImage
 
 def get_object_from_url_slug(model, url_slug):
     m = model.objects.filter(page_title__iexact=url_slug.replace('-',' ').replace('%26','&')).first()
@@ -16,6 +16,7 @@ def manufacturer_page_detail(request, url_slug):
             'hero_bkgd_img': page.hero_bkgd_img,
             'article_subtitle': page.article_subtitle,
             'services': list(page.service_set.all().values_list('service_name', flat=True)),
+            'gallery': list(page.galleryimage_set.all().values_list('image', flat=True)),
         })
     else:
         return JsonResponse({'error': 'Page not found'}, status=404)

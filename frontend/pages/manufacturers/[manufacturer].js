@@ -2,6 +2,7 @@ import styles from '/styles/eas.module.css';
 import { useEffect, useState } from 'react';
 import siteInfo from '/data/siteInfo';
 import HeroSection from '/components/HeroSection';
+import MediaGallery from '/components/MediaGallery';
 import { pageTitleToUrl } from '/utils/textUtils';
 
 export async function getStaticPaths() {
@@ -48,6 +49,7 @@ export default function Manufacturer({ data, setTitle }) {
                 <div dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></div>
             </div>
         </section>
+        <MediaGallery images={data.gallery}></MediaGallery>
         {data.services && (
         <section className={styles.servicesSection}>
             <div className={styles.container}>

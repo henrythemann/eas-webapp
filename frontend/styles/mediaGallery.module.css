@@ -1,0 +1,13 @@
+.sectionContainer {
+    height: 37vw;
+}
+
+.imgElement {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 37vw;
+    width: 100%;
+    /* cursor: pointer; */
+}

@@ -82,8 +82,14 @@ class Service(models.Model):
 class ServiceInline(admin.TabularInline):
     model = Service
     extra = 3
+class GalleryImage(models.Model):
+    manufacturer_page = models.ForeignKey(ManufacturerPage, on_delete=models.CASCADE)
+    image = models.CharField(max_length=200)
+class GalleryImageInline(admin.TabularInline):
+    model = GalleryImage
+    extra = 3
 class ManufacturerPageAdmin(CustomAdmin):
-    inlines = [ServiceInline]
+    inlines = [ServiceInline, GalleryImageInline]
 
 class SiteInfo(models.Model):
     site_description = models.TextField(max_length=200)
