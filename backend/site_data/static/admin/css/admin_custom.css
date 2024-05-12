@@ -1,3 +1,8 @@
+:root {
+    --ck-color-button-default-hover-background: #666666;
+    --ck-color-button-default-active-background: #666666;
+}
+
 input[type="text"] {
     width: 100% !important;
 }
@@ -12,6 +17,12 @@ input[type="text"] {
 }
 .ck-button__label {
     color: rgb(238, 238, 238) !important;
+}
+.ck.ck-button:not(.ck-disabled):hover, a.ck.ck-button:not(.ck-disabled):hover {
+    --ck-color-button-default-hover-background: #666666;
+}
+.ck.ck-button:not(.ck-disabled):active, a.ck.ck-button:not(.ck-disabled):active {
+    --ck-color-button-default-active-background: #666666;
 }
 .ck.ck-button.ck-on, a.ck.ck-button.ck-on {
     background: #9aa0a7 !important;

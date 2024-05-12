@@ -10,14 +10,6 @@ class Page(models.Model):
     class Meta:
         abstract = True
 
-class CustomAdmin(admin.ModelAdmin):
-    class Media:
-        css = {
-             'all': ('admin/css/admin_custom.css',)
-        }
-    class Meta:
-        abstract = True
-
 class TemplatePage(Page):
     hero_bkgd_img = models.CharField(max_length=200, blank=True)
     article_subtitle = models.CharField(max_length=200, blank=True)
@@ -64,12 +56,6 @@ class HomeExpertSectionInline(admin.TabularInline):
     model = HomeExpertSection
     extra = 1
 
-class HomePageAdmin(CustomAdmin):
-    inlines = [HomeHeroSectionInline, HomeExpertSectionInline]
-    def has_add_permission(self, request):
-        # If there's already an instance, do not allow adding new ones
-        return not HomePage.objects.exists()
-
 class ManufacturerPage(TemplatePage):
     pass
 
@@ -88,8 +74,6 @@ class GalleryImage(models.Model):
 class GalleryImageInline(admin.TabularInline):
     model = GalleryImage
     extra = 3
-class ManufacturerPageAdmin(CustomAdmin):
-    inlines = [ServiceInline, GalleryImageInline]
 
 class SiteInfo(models.Model):
     site_description = models.TextField(max_length=200)
