@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
 import HeroSection from '/components/HeroSection';
 import Link from 'next/link';
 import styles from '/styles/eas.module.css';
 import siteInfo from '/data/siteInfo';
 import { formatPhoneNumber } from '/utils/textUtils';
 
-export default function Contact() {
+export default function PrivacyPolicy({ setTitle }) {
+    useEffect(() => {
+        setTitle('Privacy Policy | European Auto Service');
+    }, []);
     return (<>
         <HeroSection style={{background: '#bebcf2'}} page_title={"Privacy Policy"}></HeroSection>
         <div className={styles.container}>

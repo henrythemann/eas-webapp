@@ -28,7 +28,8 @@ export async function getStaticProps(context) {
 export default function Service({ data, setTitle }) {
     useEffect(() => {
         if (data.page_title) {
-            setTitle(`European Auto Service offers ${data.page_title.toLowerCase()} services in Los Angeles. Our professionals have all the right skills and tools to deliver the best repairs.`);
+            // setTitle(`European Auto Service offers ${data.page_title.toLowerCase()} services in Los Angeles. Our professionals have all the right skills and tools to deliver the best repairs.`);
+            setTitle(`${data.page_title} | European Auto Service`);
         }
     }, [data.page_title]);
 

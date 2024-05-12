@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import HeroSection from '/components/HeroSection';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
@@ -13,7 +14,10 @@ export async function getStaticProps() {
     return { props: { data } };
 }
 
-export default function Contact({data}) {
+export default function Contact({data, setTitle}) {
+    useEffect(() => {
+        setTitle('Contact Us | European Auto Service');
+    }, []);
     return (<>
         <HeroSection bkgd_img={data.hero_bkgd_img} page_title={"Contact Us"}></HeroSection>
         <section>

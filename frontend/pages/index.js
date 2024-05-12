@@ -14,7 +14,7 @@ export async function getStaticProps(context) {
   return { props: { data } };
 }
 
-export default function Home({ data }) {
+export default function Home({ data, setTitle}) {
   const [heroSectionIndex, setHeroSectionIndex] = useState(0);
   const [intervalId, setIntervalId] = useState(null);
     
@@ -27,6 +27,7 @@ export default function Home({ data }) {
   };
 
   useEffect(() => {
+    setTitle('European Auto Service | Luxury Exotic Car Repair Shop Los Angeles');
     updateReviewAutomatically(); // Initialize the interval on mount
     return () => clearInterval(intervalId); // Clean up on unmount
   }, []);
@@ -80,6 +81,9 @@ export default function Home({ data }) {
                   </div>
                 );
               })}
+                {/* <div className={homePageStyles.expertItem}> <i aria-hidden="true" className={[styles.fa, styles.faWrench].join(' ')}></i><h4>Expert Technicians</h4><p>Trust the Experts. We Specialize in Repairing &amp; Restoring European Vehicles. <br></br> <a href="https://www.europeanautoreseda.com/car-repair-shop-reseda/" title="Learn more">Learn more</a></p> <a class="main_btn red" href=""><i class="lnr lnr-arrow-right"></i></a><div class="shadow_icon"> <i aria-hidden="true" class=" icon-setting"></i></div></div></div><div className={[styles.colLg4, styles.colSm6].join(' ')}><div className={homePageStyles.expertItem}> <i aria-hidden="true" className={[styles.fa, styles.faThumbsUp].join(' ')}></i><h4>Great Reviews</h4><p>"Best Euro Guys in LA! Always Treated With Impeccable Service, Utmost Respect..." <br></br> <a href="https://www.europeanautoreseda.com/reviews/" title="More reviews">Read more reviews</a></p> <a class="main_btn red" href=""><i class="lnr lnr-arrow-right"></i></a><div class="shadow_icon"> <i aria-hidden="true" class=" icon-worker"></i></div></div></div><div className={[styles.colLg4, styles.colSm6].join(' ')}><div className={homePageStyles.expertItem}> <i aria-hidden="true" className={[styles.fa, styles.faHandsHelping].join(' ')}></i><h4>Our Guarantee</h4><p>With 45+ Years Experience,  All Our Work is Backed By a Two Year,  24,000 Mile Guarantee. <br></br> <a href="https://www.europeanautoreseda.com/car-repair-shop-reseda/" title="Learn more">Learn more</a></p> <a class="main_btn red" href=""><i class="lnr lnr-arrow-right"></i></a><div class="shadow_icon"> <i aria-hidden="true" className={[styles.fa, styles.faHandsHelping].join(' ')}></i>
+              </div>
+              </div> */}
             </div>
           </div>
         </div>

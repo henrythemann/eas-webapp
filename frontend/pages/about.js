@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import HeroSection from '/components/HeroSection';
 import siteInfo from '/data/siteInfo';
 import styles from '/styles/eas.module.css';
@@ -11,7 +12,10 @@ export async function getStaticProps() {
     return { props: { data } };
 }
 
-export default function About({data}) {
+export default function About({data, setTitle}) {
+    useEffect(() => {
+        setTitle(`${data.page_title} | European Auto Service`);
+    }, []);
     return (<>
         <HeroSection bkgd_img={data.hero_bkgd_img} page_title={data.page_title}></HeroSection>
         <section className={styles.mainArticleSection}>
