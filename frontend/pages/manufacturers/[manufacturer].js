@@ -49,7 +49,8 @@ export default function Manufacturer({ data, setTitle }) {
                 <div dangerouslySetInnerHTML={{__html: data.content || 'Loading...' }}></div>
             </div>
         </section>
-        <MediaGallery images={data.gallery}></MediaGallery>
+        {data.gallery && (data.gallery.length > 0) && (
+        <MediaGallery images={data.gallery}></MediaGallery>)}
         {data.services && (
         <section className={styles.servicesSection}>
             <div className={styles.container}>

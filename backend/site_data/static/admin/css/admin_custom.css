@@ -16,3 +16,6 @@ input[type="text"] {
 .ck.ck-button.ck-on, a.ck.ck-button.ck-on {
     background: #9aa0a7 !important;
 }
+label[for="id_content"] {
+    display: none;
+}

@@ -1,13 +1,48 @@
 .sectionContainer {
     height: 37vw;
 }
-
-.imgElement {
-    position: absolute;
-    background-repeat: no-repeat;
+.carouselItem {
+    padding: 60px 0px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
     background-size: cover;
     background-position: center;
+    
     height: 37vw;
     width: 100%;
-    /* cursor: pointer; */
-}
+    position: relative;
+  }
+  
+  .enterPositive {
+    transform: translateX(61.8%);
+  }
+  
+  .enterOpposite {
+    transform: translateX(-61.8%);
+  }
+  
+  .enterActive {
+    z-index: 100;
+    transform: translateX(0);
+    transition: transform var(--duration);
+  }
+  
+  .exitActive {
+    top: 0px;
+    z-index: 99;
+    position: absolute;
+    transition: transform var(--duration);
+  }
+  
+  .carousel {
+    --duration: 256ms; /* Duration can be modified here */
+    display: block;
+    position: relative;
+    background-color: lightgrey;
+  }
+  
+  .wrapper {
+    position: relative;
+  }
